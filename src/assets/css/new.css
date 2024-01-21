@@ -51,9 +51,6 @@
   --widgets-spacing: 20px 20px;
 }
 
- {
-}
-
 h1.entry-title {
   display: var(--page-title-display);
 }
@@ -824,7 +821,6 @@ h1.entry-title {
   font-size: 1em;
 }
 
- 
 .elementor a {
   box-shadow: none;
   text-decoration: none;
@@ -1089,7 +1085,7 @@ h1.entry-title {
   transform: scale(1.3);
 }
 
-@media (min-width: -1) {
+@media (min-width: 768px) {
   .elementor-widescreen-align-center {
     text-align: center;
   }
@@ -1119,7 +1115,7 @@ h1.entry-title {
   }
 }
 
-@media (max-width: -1) {
+@media (max-width: 768px) {
   .elementor-laptop-align-center {
     text-align: center;
   }
@@ -1149,7 +1145,7 @@ h1.entry-title {
   }
 }
 
-@media (max-width: -1) {
+@media (max-width: 768px) {
   .elementor-tablet_extra-align-center {
     text-align: center;
   }
@@ -1209,7 +1205,7 @@ h1.entry-title {
   }
 }
 
-@media (max-width: -1) {
+@media (max-width: 768px) {
   .elementor-mobile_extra-align-center {
     text-align: center;
   }
@@ -1784,7 +1780,7 @@ h1.entry-title {
   }
 }
 
-@media (min-width: -1) {
+@media (min-width: 768px) {
   .elementor-reverse-widescreen > .elementor-container > :first-child {
     order: 10;
   }
@@ -1826,7 +1822,7 @@ h1.entry-title {
   }
 }
 
-@media (min-width: 1025px) and (max-width: -1) {
+@media (min-width: 1025px) and (max-width: 768px) {
   .elementor-reverse-laptop > .elementor-container > :first-child {
     order: 10;
   }
@@ -1868,7 +1864,7 @@ h1.entry-title {
   }
 }
 
-@media (min-width: -1) and (max-width: -1) {
+@media (min-width: 768px) and (max-width: 768px) {
   .elementor-reverse-laptop > .elementor-container > :first-child {
     order: 10;
   }
@@ -1910,7 +1906,7 @@ h1.entry-title {
   }
 }
 
-@media (min-width: 1025px) and (max-width: -1) {
+@media (min-width: 1025px) and (max-width: 768px) {
   .elementor-reverse-laptop > .elementor-container > :first-child,
   .elementor-reverse-laptop > .elementor-container > :nth-child(2),
   .elementor-reverse-laptop > .elementor-container > :nth-child(3),
@@ -2007,7 +2003,7 @@ h1.entry-title {
   }
 }
 
-@media (min-width: -1) and (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1024px) {
   .elementor-reverse-tablet > .elementor-container > :first-child {
     order: 10;
   }
@@ -2049,7 +2045,7 @@ h1.entry-title {
   }
 }
 
-@media (min-width: 768px) and (max-width: -1) {
+@media (min-width: 768px) and (max-width: 768px) {
   .elementor-reverse-tablet > .elementor-container > :first-child,
   .elementor-reverse-tablet > .elementor-container > :nth-child(2),
   .elementor-reverse-tablet > .elementor-container > :nth-child(3),
@@ -2230,7 +2226,7 @@ ul.elementor-icon-list-items.elementor-inline-items .elementor-inline-item {
   grid-template-columns: repeat(12, 1fr);
 }
 
-@media (min-width: -1) {
+@media (min-width: 768px) {
   .elementor-grid-widescreen-0 .elementor-grid {
     display: inline-block;
     width: 100%;
@@ -2293,7 +2289,7 @@ ul.elementor-icon-list-items.elementor-inline-items .elementor-inline-item {
   }
 }
 
-@media (max-width: -1) {
+@media (max-width: 768px) {
   .elementor-grid-laptop-0 .elementor-grid {
     display: inline-block;
     width: 100%;
@@ -2356,7 +2352,7 @@ ul.elementor-icon-list-items.elementor-inline-items .elementor-inline-item {
   }
 }
 
-@media (max-width: -1) {
+@media (max-width: 768px) {
   .elementor-grid-tablet_extra-0 .elementor-grid {
     display: inline-block;
     width: 100%;
@@ -2482,7 +2478,7 @@ ul.elementor-icon-list-items.elementor-inline-items .elementor-inline-item {
   }
 }
 
-@media (max-width: -1) {
+@media (max-width: 768px) {
   .elementor-grid-mobile_extra-0 .elementor-grid {
     display: inline-block;
     width: 100%;
@@ -2614,13 +2610,13 @@ ul.elementor-icon-list-items.elementor-inline-items .elementor-inline-item {
   }
 }
 
-@media (min-width: -1) {
+@media (min-width: 768px) {
   #elementor-device-mode::after {
     content: "widescreen";
   }
 }
 
-@media (max-width: -1) {
+@media (max-width: 768px) {
   #elementor-device-mode::after {
     content: "laptop";
     content: "tablet_extra";
@@ -2633,7 +2629,7 @@ ul.elementor-icon-list-items.elementor-inline-items .elementor-inline-item {
   }
 }
 
-@media (max-width: -1) {
+@media (max-width: 768px) {
   #elementor-device-mode::after {
     content: "mobile_extra";
   }
@@ -4817,7 +4813,7 @@ ul.elementor-icon-list-items.elementor-inline-items .elementor-inline-item {
   }
 }
 
-@media (min-width: -1) and (max-width: -1) {
+@media (min-width: 768px) and (max-width: 768px) {
   .elementor .elementor-hidden-mobile_extra {
     display: none;
   }
@@ -4829,7 +4825,7 @@ ul.elementor-icon-list-items.elementor-inline-items .elementor-inline-item {
   }
 }
 
-@media (min-width: -1) and (max-width: -1) {
+@media (min-width: 768px) and (max-width: 768px) {
   .elementor .elementor-hidden-laptop,
   .elementor .elementor-hidden-tablet_extra {
     display: none;
@@ -4842,7 +4838,7 @@ ul.elementor-icon-list-items.elementor-inline-items .elementor-inline-item {
   }
 }
 
-@media (min-width: -1) {
+@media (min-width: 768px) {
   .elementor .elementor-hidden-widescreen {
     display: none;
   }
@@ -5326,7 +5322,7 @@ ul.elementor-icon-list-items.elementor-inline-items .elementor-inline-item {
   }
 }
 
-@media (max-width: -1) {
+@media (max-width: 768px) {
   .elementor.elementor .elementor-widget-n-tabs.e-n-tabs-mobile_extra {
     --n-tabs-direction: column;
     --n-tabs-heading-display: contents;
@@ -5402,7 +5398,7 @@ ul.elementor-icon-list-items.elementor-inline-items .elementor-inline-item {
   }
 }
 
-@media (max-width: -1) {
+@media (max-width: 768px) {
   .elementor.elementor .elementor-widget-n-tabs.e-n-tabs-tablet_extra {
     --n-tabs-direction: column;
     --n-tabs-heading-display: contents;
@@ -5442,7 +5438,7 @@ ul.elementor-icon-list-items.elementor-inline-items .elementor-inline-item {
   }
 }
 
-@media (max-width: -1) {
+@media (max-width: 768px) {
   .elementor.elementor .elementor-widget-n-tabs.e-n-tabs-laptop {
     --n-tabs-direction: column;
     --n-tabs-heading-display: contents;
@@ -5517,13 +5513,6 @@ ul.elementor-icon-list-items.elementor-inline-items .elementor-inline-item {
 
 .elementor-widget-n-accordion .e-n-accordion-item:not(:last-child) {
   margin-block-end: var(--n-accordion-item-title-space-between);
-}
-
-.elementor-widget-n-accordion.e-n-accordion-item-title,: where(
-  .elementor-widget-n-accordion .e-n-accordion-item>.e-con
-) {
-  border: var(--n-accordion-border-width) var(--n-accordion-border-style)
-    var(--n-accordion-border-color);
 }
 
 .elementor-widget-n-accordion .e-n-accordion-item-title {
