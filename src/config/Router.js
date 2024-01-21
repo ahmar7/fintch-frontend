@@ -31,7 +31,7 @@ export default function Router() {
         <Top />
         <Routes>
           {/* <Route index path="/" element={<Home />} /> */}
-          <Route index path="/" element={<Home />} />
+          <Route index path="/" element={<Login />} />
           <Route index path="/wallet" element={<Wallet />} />
           <Route index path="/auth/login" element={<Login />} />
           <Route path="/auth/signup" element={<SignUp />} />
