@@ -1,0 +1,113 @@
+.active.datas {
+  --tw-text-opacity: 1 !important;
+  color: #8b5cf6 !important;
+  color: rgb(139 92 246 / var(--tw-text-opacity)) !important;
+}
+.active.datas {
+  background-color: #8b5cf61a !important;
+}
+.active.datas {
+  --tw-text-opacity: 1 !important;
+  color: #8b5cf6 !important;
+  color: rgb(139 92 246 / var(--tw-text-opacity)) !important;
+}
+.font-large {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+.image-row-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  row-gap: 15px;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+.image-row {
+  justify-content: start;
+
+  row-gap: 15px;
+  column-gap: 15px;
+
+  border-radius: 10px;
+  display: flex;
+  min-height: 80px;
+  align-items: center;
+}
+.w-1001 {
+  width: 100%;
+}
+.w-102 {
+  width: 120px;
+  display: inline;
+}
+.active.datas {
+  background-color: #8b5cf61a !important;
+}
+.justify {
+  justify-content: center;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+.hideother:not(:first-child) {
+  display: none;
+}
+.align-center {
+  align-items: center;
+}
+.bg-danger-400a {
+  background-color: rgb(244 63 94) !important;
+  color: white !important;
+}
+/* Firefox */
+.abspain {
+  position: absolute;
+  left: 20px;
+  top: 13px;
+  z-index: 58;
+}
+.flex-wraps {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  justify-content: center;
+  gap: 50px;
+}
+.fluxb li:hover {
+  background-color: rgb(237 233 254);
+  color: rgb(76 29 149);
+}
+.bolda {
+  /* font-weight: bold; */
+  font-size: 22px;
+}
+.bg-g {
+  background-image: url("../../../assets/img/home-hero-gradient.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.react-responsive-modal-modal {
+  border-radius: 20px;
+  text-align: center;
+}
+
+.react-responsive-modal-modal .rounded2 {
+  padding-top: 30px;
+}
+@media (max-width: 420px) {
+  .verified-btn a,
+  .verified-btn span,
+  .verified-btn p {
+    font-size: 11px;
+  }
+  .verified-btn {
+    margin-inline-end: 0rem !important;
+  }
+}

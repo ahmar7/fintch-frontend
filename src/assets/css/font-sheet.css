@@ -1,0 +1,7 @@
+.loading-pg{
+  min-height: 300px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
