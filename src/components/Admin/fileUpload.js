@@ -5,9 +5,11 @@ import { Dropzone, FileMosaic } from "@files-ui/react";
 import Log from "../../assets/img/log.jpg";
 import { toast } from "react-toastify";
 import { useAuthUser } from "react-auth-kit";
+import { useNavigate } from "react-router-dom";
 const FileUpload = () => {
   let authUser = useAuthUser();
   const [files, setFiles] = useState([]);
+  let Navigate = useNavigate();
   const [Active, setActive] = useState(false);
   const [uploadState, setuploadState] = useState({
     isLoading: false,
