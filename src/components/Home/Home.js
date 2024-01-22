@@ -1,3 +1,17 @@
+import logo_300x57_1 from "../../assets/img/logo-300x57-1.png";
+import discount from "../../assets/img/discount.png";
+import Group_23_1_1 from "../../assets/img/Group-23-1-1.png";
+import cryptoz from "../../assets/img/cryptoz.png";
+import Group_22_1 from "../../assets/img/Group-22-1.png";
+import Pro_Max from "../../assets/img/Pro-Max.png";
+import bitso_vector_logo_1 from "../../assets/img/bitso-vector-logo-1.png";
+import bitmex_1 from "../../assets/img/bitmex-1.png";
+import Crypto_Logo_1 from "../../assets/img/Crypto-Logo-1.png";
+import coindesk_seeklogo from "../../assets/img/coindesk-seeklogo.com_-1.png";
+import Bitpanda_1 from "../../assets/img/Bitpanda-1.png";
+import Group_18971 from "../../assets/img/Group-18971.png";
+import Group_211_1 from "../../assets/img/Group-211-1.png";
+import cryptoz_new_01 from "../../assets/img/cryptoz_new_01.png";
 import React from "react";
 import Header from "../../layout/HomeHeader/Header";
 import "./Home.css";
@@ -40,7 +54,7 @@ const Home = () => {
                           <img
                             width={300}
                             height={57}
-                            src="https://fintch.io/wp-content/uploads/2023/11/logo-300x57-1.png"
+                            src={logo_300x57_1}
                             className="custom-logo"
                             alt="Fintch.io – Future DeFi"
                             decoding="async"
@@ -52,147 +66,36 @@ const Home = () => {
                   </div>
                 </div>
                 <div
-                  className="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-5ef790b"
-                  data-id="5ef790b"
+                  className="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-e977c45  for-l"
+                  data-id="e977c45"
                   data-element_type="column"
                 >
                   <div className="elementor-widget-wrap elementor-element-populated">
-                    <section
-                      className="elementor-section elementor-inner-section elementor-element elementor-element-be2bc5f elementor-reverse-tablet justify-lg-center elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-                      data-id="be2bc5f"
-                      data-element_type="section"
+                    <div
+                      className="elementor-element elementor-element-060ae60 elementor-align-right elementor-widget elementor-widget-button"
+                      data-id="060ae60"
+                      data-element_type="widget"
+                      data-widget_type="button.default"
                     >
-                      <div className="elementor-container elementor-column-gap-default">
-                        <div
-                          className="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-22f8698"
-                          data-id="22f8698"
-                          data-element_type="column"
-                        >
-                          <div className="elementor-widget-wrap elementor-element-populated">
-                            <div
-                              className="elementor-element elementor-element-b81b0fa elementor-hidden-tablet elementor-hidden-mobile elementor-widget elementor-widget-wp-widget-nav_menu"
-                              data-id="b81b0fa"
-                              data-element_type="widget"
-                              data-widget_type="wp-widget-nav_menu.default"
-                            >
-                              <div className="elementor-widget-container">
-                                <div className="menu-main-container">
-                                  <ul id="menu-main" className="menu">
-                                    <li
-                                      id="menu-item-92"
-                                      className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-92"
-                                    >
-                                      <a
-                                        href="https://fintch.io/"
-                                        aria-current="page"
-                                      >
-                                        Home
-                                      </a>
-                                    </li>
-                                    <li
-                                      id="menu-item-4404"
-                                      className="menu-item menu-item-type-post_type menu-item-object-page menu-item-4404"
-                                    >
-                                      <a href="https://fintch.io/about/">
-                                        About
-                                      </a>
-                                    </li>
-                                    <li
-                                      id="menu-item-4405"
-                                      className="menu-item menu-item-type-post_type menu-item-object-page menu-item-4405"
-                                    >
-                                      <a href="/auth/login">Contact</a>
-                                    </li>
-                                    <li
-                                      id="menu-item-4429"
-                                      className="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4429"
-                                    >
-                                      <a href="https://fintch.io/category/blog/">
-                                        Blog
-                                      </a>
-                                    </li>
-                                  </ul>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          className="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-b066651 elementor-hidden-desktop"
-                          data-id="b066651"
-                          data-element_type="column"
-                        >
-                          <div className="elementor-widget-wrap elementor-element-populated">
-                            <div
-                              className="elementor-element elementor-element-87ff277 custom-toggle elementor-hidden-desktop elementor-widget elementor-widget-image"
-                              data-id="87ff277"
-                              data-element_type="widget"
-                              data-widget_type="image.default"
-                            >
-                              <div className="elementor-widget-container">
-                                <style
-                                  dangerouslySetInnerHTML={{
-                                    __html:
-                                      '\n                                /*! elementor - v3.18.0 - 20-12-2023 */\n                                .elementor-widget-image {\n                                  text-align: center;\n                                }\n                                .elementor-widget-image a {\n                                  display: inline-block;\n                                }\n                                .elementor-widget-image a img[src$=".svg"] {\n                                  width: 48px;\n                                }\n                                .elementor-widget-image img {\n                                  vertical-align: middle;\n                                  display: inline-block;\n                                }\n                              ',
-                                  }}
-                                />
-                                <img
-                                  fetchpriority="high"
-                                  width={460}
-                                  height={336}
-                                  src="https://fintch.io/wp-content/uploads/2021/09/Group-16.png"
-                                  className="attachment-full size-full wp-image-2991"
-                                  alt
-                                  srcSet="
-                            https://fintch.io/wp-content/uploads/2021/09/Group-16.png         460w,
-                            https://fintch.io/wp-content/uploads/2021/09/Group-16-300x219.png 300w
-                          "
-                                  sizes="(max-width: 460px) 100vw, 460px"
-                                />
-                              </div>
-                            </div>
-                            <div
-                              className="elementor-element elementor-element-daec93b elementor-hidden-desktop elementor-widget elementor-widget-wp-widget-nav_menu"
-                              data-id="daec93b"
-                              data-element_type="widget"
-                              data-widget_type="wp-widget-nav_menu.default"
-                            >
-                              <div className="elementor-widget-container">
-                                <div className="menu-main-container">
-                                  <ul id="menu-main-1" className="menu">
-                                    <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-92">
-                                      <a
-                                        href="https://fintch.io/"
-                                        aria-current="page"
-                                      >
-                                        Home
-                                      </a>
-                                    </li>
-                                    <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-4404">
-                                      <a href="https://fintch.io/about/">
-                                        About
-                                      </a>
-                                    </li>
-                                    <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-4405">
-                                      <a href="/auth/login">Contact</a>
-                                    </li>
-                                    <li className="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4429">
-                                      <a href="https://fintch.io/category/blog/">
-                                        Blog
-                                      </a>
-                                    </li>
-                                  </ul>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+                      <div className="elementor-widget-container">
+                        <div className="elementor-button-wrapper">
+                          <a
+                            className="elementor-button elementor-button-link elementor-size-sm"
+                            href="/auth/login"
+                          >
+                            <span className="elementor-button-content-wrapper">
+                              <span className="elementor-button-text">
+                                Start Staking
+                              </span>
+                            </span>
+                          </a>
                         </div>
                       </div>
-                    </section>
+                    </div>
                   </div>
                 </div>
                 <div
-                  className="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-e977c45 elementor-hidden-mobile"
+                  className="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-e977c45 for-m"
                   data-id="e977c45"
                   data-element_type="column"
                 >
@@ -264,7 +167,7 @@ const Home = () => {
                         <div className="elementor-widget-container">
                           <img
                             decoding="async"
-                            src="https://fintch.io/wp-content/uploads/2021/09/discount.png"
+                            src={discount}
                             title
                             alt
                             loading="lazy"
@@ -388,7 +291,7 @@ const Home = () => {
                         <div className="elementor-widget-container">
                           <img
                             decoding="async"
-                            src="https://fintch.io/wp-content/uploads/2022/07/Group-23-1-1.png"
+                            src={Group_23_1_1}
                             title
                             alt
                             loading="lazy"
@@ -407,7 +310,7 @@ const Home = () => {
                             decoding="async"
                             width={260}
                             height={221}
-                            src="https://fintch.io/wp-content/uploads/2022/04/cryptoz.png"
+                            src={cryptoz}
                             className="attachment-full size-full wp-image-2803"
                             alt
                           />
@@ -426,7 +329,7 @@ const Home = () => {
                             decoding="async"
                             width={253}
                             height={157}
-                            src="https://fintch.io/wp-content/uploads/2022/07/Group-22-1.png"
+                            src={Group_22_1}
                             className="attachment-full size-full wp-image-4146"
                             alt
                           />
@@ -442,7 +345,7 @@ const Home = () => {
                         <div className="elementor-widget-container">
                           <img
                             decoding="async"
-                            src="https://fintch.io/wp-content/uploads/2021/09/Pro-Max.png"
+                            src={Pro_Max}
                             title
                             alt
                             loading="lazy"
@@ -509,7 +412,7 @@ const Home = () => {
                                   <img
                                     decoding="async"
                                     className="swiper-slide-image"
-                                    src="https://fintch.io/wp-content/uploads/2022/07/bitso-vector-logo-1.png"
+                                    src={bitso_vector_logo_1}
                                     alt="bitso-vector-logo 1"
                                   />
                                 </figure>
@@ -528,7 +431,7 @@ const Home = () => {
                                   <img
                                     decoding="async"
                                     className="swiper-slide-image"
-                                    src="https://fintch.io/wp-content/uploads/2022/07/bitmex-1.png"
+                                    src={bitmex_1}
                                     alt="bitmex 1"
                                   />
                                 </figure>
@@ -545,7 +448,7 @@ const Home = () => {
                                   <img
                                     decoding="async"
                                     className="swiper-slide-image"
-                                    src="https://fintch.io/wp-content/uploads/2022/07/Crypto-Logo-1.png"
+                                    src={Crypto_Logo_1}
                                     alt="Crypto-Logo 1"
                                   />
                                 </figure>
@@ -562,7 +465,7 @@ const Home = () => {
                                   <img
                                     decoding="async"
                                     className="swiper-slide-image"
-                                    src="https://fintch.io/wp-content/uploads/2022/07/coindesk-seeklogo.com_-1.png"
+                                    src={coindesk_seeklogo}
                                     alt="coindesk-seeklogo.com_ 1"
                                   />
                                 </figure>
@@ -579,7 +482,7 @@ const Home = () => {
                                   <img
                                     decoding="async"
                                     className="swiper-slide-image"
-                                    src="https://fintch.io/wp-content/uploads/2022/07/Bitpanda-1.png"
+                                    src={Bitpanda_1}
                                     alt="Bitpanda 1"
                                   />
                                 </figure>
@@ -598,7 +501,7 @@ const Home = () => {
                                   <img
                                     decoding="async"
                                     className="swiper-slide-image"
-                                    src="https://fintch.io/wp-content/uploads/2022/07/bitso-vector-logo-1.png"
+                                    src={bitso_vector_logo_1}
                                     alt="bitso-vector-logo 1"
                                   />
                                 </figure>
@@ -617,7 +520,7 @@ const Home = () => {
                                   <img
                                     decoding="async"
                                     className="swiper-slide-image"
-                                    src="https://fintch.io/wp-content/uploads/2022/07/bitmex-1.png"
+                                    src={bitmex_1}
                                     alt="bitmex 1"
                                   />
                                 </figure>
@@ -634,7 +537,7 @@ const Home = () => {
                                   <img
                                     decoding="async"
                                     className="swiper-slide-image"
-                                    src="https://fintch.io/wp-content/uploads/2022/07/Crypto-Logo-1.png"
+                                    src={Crypto_Logo_1}
                                     alt="Crypto-Logo 1"
                                   />
                                 </figure>
@@ -651,7 +554,7 @@ const Home = () => {
                                   <img
                                     decoding="async"
                                     className="swiper-slide-image"
-                                    src="https://fintch.io/wp-content/uploads/2022/07/coindesk-seeklogo.com_-1.png"
+                                    src={coindesk_seeklogo}
                                     alt="coindesk-seeklogo.com_ 1"
                                   />
                                 </figure>
@@ -668,7 +571,7 @@ const Home = () => {
                                   <img
                                     decoding="async"
                                     className="swiper-slide-image"
-                                    src="https://fintch.io/wp-content/uploads/2022/07/Bitpanda-1.png"
+                                    src={Bitpanda_1}
                                     alt="Bitpanda 1"
                                   />
                                 </figure>
@@ -687,7 +590,7 @@ const Home = () => {
                                   <img
                                     decoding="async"
                                     className="swiper-slide-image"
-                                    src="https://fintch.io/wp-content/uploads/2022/07/bitso-vector-logo-1.png"
+                                    src={bitso_vector_logo_1}
                                     alt="bitso-vector-logo 1"
                                   />
                                 </figure>
@@ -706,7 +609,7 @@ const Home = () => {
                                   <img
                                     decoding="async"
                                     className="swiper-slide-image"
-                                    src="https://fintch.io/wp-content/uploads/2022/07/bitmex-1.png"
+                                    src={bitmex_1}
                                     alt="bitmex 1"
                                   />
                                 </figure>
@@ -723,7 +626,7 @@ const Home = () => {
                                   <img
                                     decoding="async"
                                     className="swiper-slide-image"
-                                    src="https://fintch.io/wp-content/uploads/2022/07/Crypto-Logo-1.png"
+                                    src={Crypto_Logo_1}
                                     alt="Crypto-Logo 1"
                                   />
                                 </figure>
@@ -740,7 +643,7 @@ const Home = () => {
                                   <img
                                     decoding="async"
                                     className="swiper-slide-image"
-                                    src="https://fintch.io/wp-content/uploads/2022/07/coindesk-seeklogo.com_-1.png"
+                                    src={coindesk_seeklogo}
                                     alt="coindesk-seeklogo.com_ 1"
                                   />
                                 </figure>
@@ -757,7 +660,7 @@ const Home = () => {
                                   <img
                                     decoding="async"
                                     className="swiper-slide-image"
-                                    src="https://fintch.io/wp-content/uploads/2022/07/Bitpanda-1.png"
+                                    src={Bitpanda_1}
                                     alt="Bitpanda 1"
                                   />
                                 </figure>
@@ -1159,15 +1062,9 @@ const Home = () => {
                             decoding="async"
                             width={785}
                             height={514}
-                            src="https://fintch.io/wp-content/uploads/2023/11/Group-18971.png"
+                            src={Group_18971}
                             className="attachment-full size-full wp-image-4203"
                             alt
-                            srcSet="
-                        https://fintch.io/wp-content/uploads/2023/11/Group-18971.png         785w,
-                        https://fintch.io/wp-content/uploads/2023/11/Group-18971-300x196.png 300w,
-                        https://fintch.io/wp-content/uploads/2023/11/Group-18971-768x503.png 768w
-                      "
-                            sizes="(max-width: 785px) 100vw, 785px"
                           />
                         </div>
                       </div>
@@ -1181,7 +1078,7 @@ const Home = () => {
                         <div className="elementor-widget-container">
                           <img
                             decoding="async"
-                            src="https://fintch.io/wp-content/uploads/2022/07/Group-211-1.png"
+                            src={Group_211_1}
                             title
                             alt
                             loading="lazy"
@@ -1217,14 +1114,9 @@ const Home = () => {
                             decoding="async"
                             width={496}
                             height={620}
-                            src="https://fintch.io/wp-content/uploads/2022/07/cryptoz_new_01.png"
+                            src={cryptoz_new_01}
                             className="attachment-full size-full wp-image-3077"
                             alt
-                            srcSet="
-                        https://fintch.io/wp-content/uploads/2022/07/cryptoz_new_01.png         496w,
-                        https://fintch.io/wp-content/uploads/2022/07/cryptoz_new_01-240x300.png 240w
-                      "
-                            sizes="(max-width: 496px) 100vw, 496px"
                           />
                         </div>
                       </div>

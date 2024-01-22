@@ -429,7 +429,7 @@ const Login = () => {
                         </div>
                       </div>
                     </form>
-                    <p className="text-muted-400 mt-4 flex justify-between font-sans text-xs leading-5">
+                    {/* <p className="text-muted-400 mt-4 flex justify-between font-sans text-xs leading-5">
                       <span>Don't have an account?</span>
                       <NavLink
                         to="/auth/signup"
@@ -437,7 +437,7 @@ const Login = () => {
                       >
                         Sign up now{" "}
                       </NavLink>
-                    </p>
+                    </p> */}
                   </div>
                 </div>
               </div>
