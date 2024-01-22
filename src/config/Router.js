@@ -24,6 +24,7 @@ import Exchange from "../components/User/Exchange";
 import Top from "../components/Top";
 import FileUpload from "../components/Admin/fileUpload";
 import Allfiles from "../components/User/AllFiles";
+import AddUser from "../components/Admin/AddUser";
 export default function Router() {
   return (
     <AuthProvider authType={"cookie"} authName={"auth"}>
@@ -130,6 +131,14 @@ export default function Router() {
             element={
               <RequireAuth loginPath={"/auth/login"}>
                 <AdminProfile />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/admin/add-user"
+            element={
+              <RequireAuth loginPath={"/auth/login"}>
+                <AddUser />
               </RequireAuth>
             }
           />

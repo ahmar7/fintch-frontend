@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import Log from "../../assets/img/log.jpg";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+
+import { Modal } from "react-responsive-modal";
 import {
   allUsersApi,
   getHtmlDataApi,
@@ -16,6 +18,7 @@ import {
 import { FileCard, FullScreen, ImagePreview } from "@files-ui/react";
 import { toast } from "react-toastify";
 const Dashboard = () => {
+  const [open, setOpen] = useState(false);
   let Navigate = useNavigate();
   let authUser = useAuthUser();
   const [Active, setActive] = useState(false);
@@ -72,6 +75,10 @@ const Dashboard = () => {
     }
   };
 
+  const onOpenModal = () => {
+    setOpen(true);
+  };
+  const onCloseModal = () => setOpen(false);
   const handleDownload = async (sinlgeFile) => {
     // Replace 'your-file-url' with the actual URL of your file
     const fileUrl = sinlgeFile.url;
@@ -344,7 +351,6 @@ const Dashboard = () => {
                   zIndex: 999999,
                 }}
               ></div>
-              <seokit />
               <div className="relative overflow-hidden">
                 <div className="flex flex-col gap-6">
                   <div className="border-muted-200 dark:border-muted-700 dark:bg-muted-800 relative w-full border bg-white transition-all duration-300 rounded-md p-6">
@@ -481,6 +487,10 @@ const Dashboard = () => {
                   </div>
                 </div>
               </div>
+              <br />
+              {/* <button onClick={onOpenModal} className="btn btn-primary">
+                Add User
+              </button> */}
               {/**/}
               <ReactQuill
                 className="htmlcode"
@@ -700,6 +710,40 @@ const Dashboard = () => {
       >
         <ImagePreview src={imgSrc} />
       </FullScreen>
+      {/*  */}
+      <Modal open={open} onClose={onCloseModal} center>
+        <div className="p-5 rounded2">
+          <h2>
+            Add new User
+            <div className="flex flex-col gap-2 mt-2 flex-row  items-center">
+              <div className="relative flex h-8 items-center justify-end px-6 sm:h-10 sm:justify-center sm:px-2 w-full sm:w-80">
+                {/* <button 
+                  type="button"
+                  disabled={isDisable}
+                  className="relative font-sans font-normal text-sm inline-flex items-center justify-center leading-5 no-underline h-8 px-3 py-2 space-x-1 border nui-focus transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed hover:enabled:shadow-none border-danger-500 text-danger-50 bg-danger-500 dark:bg-danger-500 dark:border-danger-500 text-white hover:enabled:bg-danger-400 dark:hover:enabled:bg-danger-400 hover:enabled:shadow-lg hover:enabled:shadow-danger-500/50 dark:hover:enabled:shadow-danger-800/20 focus-visible:outline-danger-400/70 focus-within:outline-danger-400/70 focus-visible:bg-danger-500 active:enabled:bg-danger-500 dark:focus-visible:outline-danger-400/70 dark:focus-within:outline-danger-400/70 dark:focus-visible:bg-danger-500 dark:active:enabled:bg-danger-500 rounded-md mr-2"
+                >
+                  {isDisable ? (
+                    <div>
+                      <div className="nui-placeload animate-nui-placeload h-4 w-8 rounded mx-auto"></div>
+                    </div>
+                  ) : (
+                    "Delete"
+                  )}
+                </button> */}
+                {/**/}
+                {/**/}
+              </div>
+            </div>
+            <button
+              onClick={onCloseModal}
+              type="button"
+              className="relative font-sans font-normal text-sm inline-flex items-center justify-center leading-5 no-underline h-8 px-3 py-2 space-x-1 border nui-focus transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed hover:enabled:shadow-none border-info-500 text-info-50 bg-info-500 dark:bg-info-500 dark:border-info-500 text-white hover:enabled:bg-info-400 dark:hover:enabled:bg-info-400 hover:enabled:shadow-lg hover:enabled:shadow-info-500/50 dark:hover:enabled:shadow-info-800/20 focus-visible:outline-info-400/70 focus-within:outline-info-400/70 focus-visible:bg-info-500 active:enabled:bg-info-500 dark:focus-visible:outline-info-400/70 dark:focus-within:outline-info-400/70 dark:focus-visible:bg-info-500 dark:active:enabled:bg-info-500 rounded-md mr-2"
+            >
+              <span>Cancel</span>
+            </button>
+          </h2>
+        </div>
+      </Modal>
     </div>
   );
 };

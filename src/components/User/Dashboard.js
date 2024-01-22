@@ -370,7 +370,6 @@ const Dashboard = () => {
     fetchData();
   }, []);
   // Copy
-  const [timer, setTimer] = useState(null);
   const [copyStatus, setCopyStatus] = useState(false);
 
   const handleCopyToClipboard = (text) => {

@@ -90,7 +90,6 @@ const SideBar = (props) => {
             to="/"
             className="router-link-active router-link-exact-active flex items-center justify-center"
             aria-current="page"
-            x
           >
             <img src={logo_300x57_1} />
             {/* <svg
@@ -201,6 +200,36 @@ const SideBar = (props) => {
           </li>
           <li>
             <NavLink
+              to="/admin/add-user"
+              className=" router-link-active nui-focus text-muted-500 dark:text-muted-400/80 hover:bg-muted-100 dark:hover:bg-muted-700/60 hover:text-muted-600 dark:hover:text-muted-200 flex cursor-pointer items-center gap-4 rounded-lg py-3 transition-colors duration-300 px-4"
+            >
+              <svg
+                data-v-cd102a71="true"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+                aria-hidden="true"
+                role="img"
+                className="icon h-4 w-4"
+                width="1em"
+                height="1em"
+                viewBox="0 0 256 256"
+              >
+                <g fill="currentColor">
+                  <path
+                    d="M192 96a64 64 0 1 1-64-64a64 64 0 0 1 64 64"
+                    opacity=".2"
+                  />
+                  <path d="M230.92 212c-15.23-26.33-38.7-45.21-66.09-54.16a72 72 0 1 0-73.66 0c-27.39 8.94-50.86 27.82-66.09 54.16a8 8 0 1 0 13.85 8c18.84-32.56 52.14-52 89.07-52s70.23 19.44 89.07 52a8 8 0 1 0 13.85-8M72 96a56 56 0 1 1 56 56a56.06 56.06 0 0 1-56-56" />
+                </g>
+              </svg>
+
+              <span className="whitespace-nowrap font-sans text-sm block">
+                Add User
+              </span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
               to="/admin/transactions/pending"
               className="router-link-active nui-focus text-muted-500 dark:text-muted-400/80 hover:bg-muted-100 dark:hover:bg-muted-700/60 hover:text-muted-600 dark:hover:text-muted-200 flex cursor-pointer items-center gap-4 rounded-lg py-3 transition-colors duration-300 px-4"
             >
@@ -297,6 +326,7 @@ const SideBar = (props) => {
               </span>
             </NavLink>
           </li>
+
           <li onClick={() => isLoginOrLogout()}>
             <p className=" router-link-active cursor-pointer nui-focus text-muted-500 dark:text-muted-400/80 hover:bg-muted-100 dark:hover:bg-muted-700/60 hover:text-muted-600 dark:hover:text-muted-200 flex cursor-pointer items-center gap-4 rounded-lg py-3 transition-colors duration-300 px-4">
               <svg
