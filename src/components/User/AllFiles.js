@@ -167,7 +167,7 @@ const Allfiles = () => {
                         className="font-heading text-white  text-sm font-medium leading-normal leading-normal uppercase tracking-wider"
                         tag="h2"
                       >
-                        All documents
+                        documents
                       </p>
                     </div>
                   </div>

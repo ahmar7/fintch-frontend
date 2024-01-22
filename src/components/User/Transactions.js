@@ -399,7 +399,7 @@ const Transactions = () => {
                               <div className="flex min-h-[400px] items-center justify-center">
                                 <div className="mx-auto w-full text-center max-w-xs">
                                   <div className="mx-auto max-w-xs">
-                                    <img
+                                    {/* <img
                                       className="block dark:hidden"
                                       src={searcH}
                                       alt="Placeholder image"
@@ -408,7 +408,7 @@ const Transactions = () => {
                                       className="hidden dark:block"
                                       src={searcH}
                                       alt="Placeholder image"
-                                    />
+                                    /> */}
                                   </div>
                                   <div className="mx-auto max-w-sm">
                                     <h4 className="font-heading text-xl font-medium leading-normal leading-normal text-muted-800 mb-1 mt-4 dark:text-white">

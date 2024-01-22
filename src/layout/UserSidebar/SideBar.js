@@ -1,3 +1,4 @@
+import logo_300x57_1 from "../../assets/img/logo-300x57-1.png";
 import React, { useEffect, useState } from "react";
 import "./Header.css";
 import { NavLink, useNavigate, Link } from "react-router-dom";
@@ -90,13 +91,14 @@ const SideBar = (props) => {
           X
         </div>
         <div className="flex h-16 w-full items-center justify-between px-6">
-          <div className="flex h-16 w-16 items-center  ">
+          <div className="flex  items-center  ">
             <NavLink
               to="/"
               className="router-link-active router-link-exact-active flex items-center justify-center"
               aria-current="page"
             >
-              <svg
+              <img src={logo_300x57_1} />
+              {/* <svg
                 width={224}
                 height={24}
                 viewBox="0 0 224 24"
@@ -135,7 +137,7 @@ const SideBar = (props) => {
                     <path fill="#fff" d="M0 0h216v24H0z" />
                   </clipPath>
                 </defs>
-              </svg>
+              </svg> */}
             </NavLink>
           </div>
         </div>
@@ -181,7 +183,7 @@ const SideBar = (props) => {
               >
                 <i class="fa-solid fa-file text-blue"></i>
                 <span className="whitespace-nowrap font-sans text-sm block">
-                  All Documents
+                  Documents
                 </span>
               </NavLink>
             </li>

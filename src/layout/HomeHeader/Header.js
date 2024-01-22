@@ -1,3 +1,4 @@
+import logo_300x57_1 from "../../assets/img/logo-300x57-1.png";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
@@ -22,7 +23,8 @@ const Header = () => {
             aria-label="homepage"
             className="Link__CustomLink-sc-1p80yfz-0 hDjhKH"
           >
-            <svg
+            <img src={logo_300x57_1} alt="" />
+            {/* <svg
               width={224}
               height={24}
               viewBox="0 0 224 24"
@@ -61,7 +63,7 @@ const Header = () => {
                   <path fill="#fff" d="M0 0h216v24H0z" />
                 </clipPath>
               </defs>
-            </svg>
+            </svg> */}
           </Link>
           <div className="Header__DesktopContainer-ra9ecu-2 Header__DesktopMenu-ra9ecu-3 bZhfok ddctkp">
             <nav>

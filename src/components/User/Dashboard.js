@@ -563,7 +563,7 @@ const Dashboard = () => {
                       <div className="flex mb-5 flex-col gap-4 line-bg">
                         <div className="  relative w-full   transition-all duration-300 rounded-md p-4">
                           <div>
-                            <img
+                            {/* <img
                               src={chartGuy}
                               className="block imgtu dark:hidden mx-auto"
                               alt="Placeholder illustration"
@@ -572,7 +572,7 @@ const Dashboard = () => {
                               src={chartGuy}
                               className="hidden dark:block imgtu mx-auto"
                               alt="Placeholder illustration"
-                            />
+                            /> */}
                             <div className="mt-4 text-center">
                               <h4 className="font-heading text-lg font-light leading-tight text-muted-800 mb-1 dark:text-white">
                                 <span>
@@ -624,9 +624,9 @@ const Dashboard = () => {
                     ) : (
                       ""
                     )}
-                    <div className="line-bg">
+                    {/* <div className="line-bg">
                       <LineChart data={btcData} />
-                    </div>
+                    </div> */}
                     <br />
                     <div className="line-bgasasd">
                       <LiveCoins />
