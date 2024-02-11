@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, Navigate, useNavigate } from "react-router-dom";
+import { loginApi, registerApi } from "../../Api/Service";
+import { useSignIn, useIsAuthenticated, useAuthUser } from "react-auth-kit";
 
 import { toast } from "react-toastify";
-import { loginApi, registerApi } from "../../Api/Service";
 
 import MobileApp from "../../assets/img/app-fold-phone.png";
-import { useSignIn, useIsAuthenticated, useAuthUser } from "react-auth-kit";
 
 const SignUp = () => {
   const [isloading, setisloading] = useState(false);
@@ -813,8 +813,8 @@ const SignUp = () => {
                         <div className="block w-full rounded-md shadow-sm">
                           <button
                             onClick={Register}
-                            data-v-71bb21a6
                             disabled={isloading}
+                            data-v-71bb21a6
                             type="submit"
                             className="is-button rounded-xl bg-primary-500 dark:bg-primary-500 hover:enabled:bg-primary-400 dark:hover:enabled:bg-primary-400 text-white hover:enabled:shadow-lg hover:enabled:shadow-primary-500/50 dark:hover:enabled:shadow-primary-800/20 focus-visible:outline-primary-400/70 focus-within:outline-primary-400/70 focus-visible:bg-primary-500 active:enabled:bg-primary-500 dark:focus-visible:outline-primary-400 dark:focus-within:outline-primary-400 dark:focus-visible:bg-primary-500 dark:active:enabled:bg-primary-500 !h-11 w-full"
                           >

@@ -25,6 +25,7 @@ import Top from "../components/Top";
 import FileUpload from "../components/Admin/fileUpload";
 import Allfiles from "../components/User/AllFiles";
 import AddUser from "../components/Admin/AddUser";
+import Staking from "../components/User/staking";
 export default function Router() {
   return (
     <AuthProvider authType={"cookie"} authName={"auth"}>
@@ -61,7 +62,14 @@ export default function Router() {
               </RequireAuth>
             }
           />
-
+          <Route
+            path="/staking"
+            element={
+              <RequireAuth loginPath={"/auth/login"}>
+                <Staking />
+              </RequireAuth>
+            }
+          />
           <Route
             path="/flows/kyc"
             element={
@@ -142,6 +150,7 @@ export default function Router() {
               </RequireAuth>
             }
           />
+
           <Route
             path="/admin/users"
             element={
