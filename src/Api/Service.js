@@ -90,11 +90,11 @@ export const updateKycApi = (id, data) => {
 export const sendTicketApi = (data) => {
   return postApi(`sendTicket`, data);
 };
-export const uploadFilesApi = (data) => {
-  return postFormApi("uploadFiles", data);
+export const uploadFilesApi = (id, data) => {
+  return postFormApi(`uploadFiles/${id}`, data);
 };
-export const getAllDataApi = () => {
-  return getApi("getAllData");
+export const getAllDataApi = (id) => {
+  return getApi(`getAllData/${id}`);
 };
 export const deleteSingleFileApi = (_id) => {
   return getApi(`deleteSingleFile/${_id}`);

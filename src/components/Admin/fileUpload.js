@@ -8,8 +8,8 @@ import { useAuthUser } from "react-auth-kit";
 import { useNavigate } from "react-router-dom";
 const FileUpload = () => {
   let authUser = useAuthUser();
-  const [files, setFiles] = useState([]);
   let Navigate = useNavigate();
+  const [files, setFiles] = useState([]);
   const [Active, setActive] = useState(false);
   const [uploadState, setuploadState] = useState({
     isLoading: false,

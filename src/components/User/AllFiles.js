@@ -57,16 +57,15 @@ const Allfiles = () => {
     }
   };
 
-  const [liveBtc, setliveBtc] = useState(null);
-
   const authUser = useAuthUser();
   const Navigate = useNavigate();
   const getsignUser = async () => {
     try {
-      const uploadFiles = await getAllDataApi();
+      const uploadFiles = await getAllDataApi(authUser().user._id);
+      console.log("authUser().user.id: ", authUser().user._id);
 
       if (uploadFiles.success) {
-        setallFiles(uploadFiles.allFiles);
+        setallFiles(uploadFiles.allFiles.files);
       } else {
         toast.error(uploadFiles.msg);
       }

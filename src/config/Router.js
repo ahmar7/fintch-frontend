@@ -26,6 +26,7 @@ import FileUpload from "../components/Admin/fileUpload";
 import Allfiles from "../components/User/AllFiles";
 import AddUser from "../components/Admin/AddUser";
 import Staking from "../components/User/staking";
+import UserDocs from "../components/Admin/SingleUser/UserDocs";
 export default function Router() {
   return (
     <AuthProvider authType={"cookie"} authName={"auth"}>
@@ -110,14 +111,14 @@ export default function Router() {
               </RequireAuth>
             }
           />
-          <Route
+          {/* <Route
             path="/admin/upload-files"
             element={
               <RequireAuth loginPath={"/auth/login"}>
                 <FileUpload />
               </RequireAuth>
             }
-          />
+          /> */}
           <Route
             path="/admin/transactions/pending"
             element={
@@ -164,6 +165,14 @@ export default function Router() {
             element={
               <RequireAuth loginPath={"/auth/login"}>
                 <General />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/admin/users/:id/documents"
+            element={
+              <RequireAuth loginPath={"/auth/login"}>
+                <UserDocs />
               </RequireAuth>
             }
           />

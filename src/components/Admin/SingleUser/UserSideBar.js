@@ -89,6 +89,15 @@ const UserSideBar = (props) => {
               <span>Manage Transactions</span>
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to={`/admin/users/${props.userid}/documents`}
+              className="text-muted-400 datas hover:text-muted-600 dark:hover:text-muted-200 hover:bg-muted-50 dark:hover:bg-muted-700/50 flex items-center gap-2 rounded-lg p-3 transition-colors duration-300"
+            >
+              <i class="fa-solid fa-file text-blue me-1"></i>
+              <span>User Documents</span>
+            </NavLink>
+          </li>
 
           <li>
             <NavLink
