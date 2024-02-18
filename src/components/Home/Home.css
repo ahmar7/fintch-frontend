@@ -517,7 +517,14 @@ p {
   line-height: 1.25rem;
   color: rgb(255, 255, 255);
 }
-
+footer #left-area ul.elementor-icon-list-items,
+.elementor-edit-area .elementor-element ul.elementor-icon-list-items,
+.elementor .elementor-element ul.elementor-icon-list-items {
+  margin-left: 0 !important;
+}
+footer {
+  color: white !important;
+}
 button,
 input {
   overflow: visible;

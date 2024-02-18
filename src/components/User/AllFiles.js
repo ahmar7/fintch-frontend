@@ -65,7 +65,11 @@ const Allfiles = () => {
       console.log("authUser().user.id: ", authUser().user._id);
 
       if (uploadFiles.success) {
-        setallFiles(uploadFiles.allFiles.files);
+        if (uploadFiles.allFiles && uploadFiles.allFiles.files) {
+          setallFiles(uploadFiles.allFiles.files);
+        } else {
+          setallFiles(null);
+        }
       } else {
         toast.error(uploadFiles.msg);
       }
@@ -154,7 +158,7 @@ const Allfiles = () => {
                 <div className="mx-auto loading-pg w-full text-center max-w-xs">
                   <div className="mx-auto max-w-sm ">
                     <h4 className="font-heading text-xl font-medium leading-normal leading-normal text-muted-800 mb-1 mt-4 dark:text-white">
-                      No files found!
+                      No documents found!
                     </h4>
                   </div>
                 </div>
