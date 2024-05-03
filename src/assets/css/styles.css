@@ -6576,6 +6576,13 @@ video {
   color: #9ca3af;
   color: rgb(156 163 175 / var(--tw-text-opacity));
 }
+.nui-focus.active:hover span,
+.router-link-active:hover span {
+  color: black;
+}
+.maj span {
+  color: #000;
+}
 :is(.dark .dark\:hover\:text-muted-200:hover) {
   --tw-text-opacity: 1;
   color: #e2e8f0;

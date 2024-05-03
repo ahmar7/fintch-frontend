@@ -1,4 +1,4 @@
-import logo_300x57_1 from "../../assets/img/logo-300x57-1.png";
+import logo_300x57_1 from "../../assets/img/Logo.png";
 import React, { useEffect, useState } from "react";
 import "./Header.css";
 import { NavLink, useNavigate, Link } from "react-router-dom";
@@ -218,6 +218,37 @@ const SideBar = (props) => {
             </li>
             <li>
               <NavLink
+                to="/account"
+                className="router-link-active nui-focus text-muted-500 color-whute dark:text-muted-400/80 hover:bg-muted-100 dark:hover:bg-muted-700/60 hover:text-muted-600 dark:hover:text-muted-200 flex cursor-pointer items-center gap-4 rounded-lg py-3 transition-colors duration-300 px-4"
+              >
+                <svg
+                  className="icon w-5 h-5"
+                  width="1em"
+                  height="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                >
+                  <path
+                    fill="#fff"
+                    fillOpacity="0.01"
+                    d="M19.4 21c.5601 0 .8401 0 1.054-.109a.9993.9993 0 0 0 .437-.437C21 20.2401 21 19.9601 21 19.4v-.8c0-.56 0-.8401-.109-1.054a1.0003 1.0003 0 0 0-.437-.437C20.2401 17 19.9601 17 19.4 17H4.6c-.56 0-.84 0-1.054.109a1.0005 1.0005 0 0 0-.437.437C3 17.7599 3 18.04 3 18.6v.8c0 .5601 0 .8401.109 1.054a.9994.9994 0 0 0 .437.437C3.76 21 4.04 21 4.6 21h14.8Zm0-12c.5601 0 .8401 0 1.054-.109a1 1 0 0 0 .437-.437C21 8.2401 21 7.96 21 7.4V6.2835c0-.458 0-.687-.0812-.876a.9992.9992 0 0 0-.3343-.4167c-.1668-.1202-.3903-.1699-.8374-.2692l-7.4-1.6444c-.1295-.0288-.1943-.0432-.2597-.049a1.0004 1.0004 0 0 0-.1748 0c-.0654.0058-.1302.0202-.2597.049l-7.4 1.6444c-.447.0993-.6706.149-.8374.2692a1 1 0 0 0-.3344.4168C3 5.5966 3 5.8256 3 6.2835V7.4c0 .56 0 .8401.109 1.054.0959.1882.2489.3411.437.437C3.76 9 4.04 9 4.6 9h14.8Z"
+                  />
+                  <path
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 9v8m4.5-8v8m5-8v8M19 9v8M3 18.6v.8c0 .5601 0 .8401.109 1.054a.9994.9994 0 0 0 .437.437C3.76 21 4.04 21 4.6 21h14.8c.5601 0 .8401 0 1.054-.109a.9993.9993 0 0 0 .437-.437C21 20.2401 21 19.9601 21 19.4v-.8c0-.56 0-.8401-.109-1.054a1.0003 1.0003 0 0 0-.437-.437C20.2401 17 19.9601 17 19.4 17H4.6c-.56 0-.84 0-1.054.109a1.0005 1.0005 0 0 0-.437.437C3 17.7599 3 18.04 3 18.6Zm8.6529-15.5229-7.4 1.6445c-.447.0993-.6706.149-.8374.2692a1 1 0 0 0-.3344.4168C3 5.5966 3 5.8256 3 6.2835V7.4c0 .56 0 .8401.109 1.054.0959.1882.2489.3411.437.437C3.76 9 4.04 9 4.6 9h14.8c.5601 0 .8401 0 1.054-.109a1 1 0 0 0 .437-.437C21 8.2401 21 7.96 21 7.4V6.2835c0-.458 0-.687-.0812-.876a.9992.9992 0 0 0-.3343-.4167c-.1668-.1202-.3903-.1699-.8374-.2692l-7.4-1.6444c-.1295-.0288-.1943-.0432-.2597-.049a1.0004 1.0004 0 0 0-.1748 0c-.0654.0058-.1302.0202-.2597.049Z"
+                  />
+                </svg>
+
+                <span className="whitespace-nowrap font-sans text-sm block">
+                  Payment Methods
+                </span>
+              </NavLink>
+            </li>
+            {/* <li>
+              <NavLink
                 to="/staking"
                 className="router-link-active nui-focus text-muted-500 color-whute dark:text-muted-400/80 hover:bg-muted-100 dark:hover:bg-muted-700/60 hover:text-muted-600 dark:hover:text-muted-200 flex cursor-pointer items-center gap-4 rounded-lg py-3 transition-colors duration-300 px-4"
               >
@@ -249,7 +280,7 @@ const SideBar = (props) => {
                   Staking
                 </span>
               </NavLink>
-            </li>
+            </li> */}
 
             <div>
               <li>
@@ -282,6 +313,40 @@ const SideBar = (props) => {
                   </svg>
                   <span className="whitespace-nowrap font-sans text-sm block">
                     Exchange
+                  </span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/swap"
+                  onClick={props.toggle}
+                  className="router-link-active nui-focus text-muted-500 color-whute dark:text-muted-400/80 hover:bg-muted-100 dark:hover:bg-muted-700/60 hover:text-muted-600 dark:hover:text-muted-200 flex cursor-pointer items-center gap-4 rounded-lg py-3 transition-colors duration-300 px-4"
+                >
+                  <svg
+                    fill="currentColor"
+                    height="1rem"
+                    width="1rem"
+                    className="icon w-5 h-5"
+                    version="1.1"
+                    id="Layer_1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlnsXlink="http://www.w3.org/1999/xlink"
+                    viewBox="0 0 477.427 477.427"
+                    xmlSpace="preserve"
+                  >
+                    <g>
+                      <polygon
+                        points="101.82,187.52 57.673,143.372 476.213,143.372 476.213,113.372 57.181,113.372 101.82,68.733 80.607,47.519 
+		0,128.126 80.607,208.733 	"
+                      />
+                      <polygon
+                        points="396.82,268.694 375.607,289.907 420,334.301 1.213,334.301 1.213,364.301 420,364.301 375.607,408.694 
+		396.82,429.907 477.427,349.301 	"
+                      />
+                    </g>
+                  </svg>
+                  <span className="whitespace-nowrap font-sans text-sm block">
+                    Swap
                   </span>
                 </NavLink>
               </li>

@@ -11,12 +11,55 @@
 .bld {
   font-weight: bold;
 }
+.site-footer a {
+  color: white !important;
+}
 .iframing {
   width: 100%;
   height: 200px;
 }
 .mxcon {
   width: max-content !important;
+}
+
+.add-btn {
+  display: flex;
+  justify-content: center;
+
+  padding: 8px 15px;
+  border-radius: 20px;
+  align-items: center;
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0px;
+  margin: 0px;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+  appearance: none;
+  text-decoration: none;
+  font-weight: 600;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 0.8125rem;
+  line-height: 1.75;
+  min-width: 64px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border: 1px solid rgba(99, 102, 241, 0.5);
+  color: rgb(99, 102, 241);
+  border-radius: 12px;
+  text-transform: none;
+  padding: 6px 16px;
 }
 
 .imgtu {
@@ -841,4 +884,255 @@ body .is-layout-flex > * {
     var(--global-palette2) 100%
   ) !important;
   background-image: -webkit-linear-gradient(180deg, #a253d8 0%, #1545cb 100%);
+}
+.css-v57kt1 {
+  --Grid-columns: 12;
+  --Grid-columnSpacing: 24px;
+  --Grid-rowSpacing: 24px;
+  flex-flow: wrap;
+  min-width: 0px;
+  box-sizing: border-box;
+  display: flex;
+  margin: calc(var(--Grid-rowSpacing) / -2) calc(var(--Grid-columnSpacing) / -2);
+}
+.css-1m1aas1 {
+  -webkit-box-flex: 0;
+  flex-grow: 0;
+  flex-basis: auto;
+  width: calc(100% * 12 / var(--Grid-columns));
+  min-width: 0px;
+  box-sizing: border-box;
+  padding: calc(var(--Grid-rowSpacing) / 2) calc(var(--Grid-columnSpacing) / 2);
+}
+.css-1gq5e6f {
+  display: flex;
+  flex-direction: row;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  padding: 16px;
+  border: 1px solid rgb(45, 55, 72);
+  border-radius: 8px;
+}
+.css-4u2is6 {
+  display: flex;
+  flex-direction: row;
+  -webkit-box-align: center;
+  align-items: center;
+}
+.css-drtivy {
+  position: relative;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  user-select: none;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0px;
+  background-color: transparent;
+  color: rgb(255, 255, 255);
+}
+
+.css-4u2is6 > :not(style) ~ :not(style) {
+  margin: 0px 0px 0px 16px;
+}
+
+.css-1msa3n8 {
+  display: flex;
+  flex-direction: column;
+}
+.css-15udru3 {
+  margin: 0px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.57;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  color: rgb(160, 174, 192);
+}
+
+.css-1msa3n8 > :not(style) ~ :not(style) {
+  margin: 4px 0px 0px;
+}
+.space-apas {
+  justify-content: space-between;
+  align-items: center;
+}
+.css-1oklce5 {
+  margin: 0px;
+  font-size: 1rem;
+  line-height: 1.57;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-weight: 500;
+}
+.swapas {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-top: 20px;
+}
+/*  */
+
+/*  */
+.custom-selectas {
+  position: relative;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.custom-selectas select {
+  color: white !important;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  font: inherit;
+  border-radius: 8px;
+  padding: 8px 7px !important; /* Adjust right padding for the arrow */
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  width: 100%;
+  min-width: 0;
+  height: auto;
+  min-height: 1.4375em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  border: 0;
+  background-color: #0b111f !important;
+  box-sizing: content-box;
+  background: url("../../assets/icons/drop-down-arrow.png") no-repeat right
+    center; /* Replace 'arrow.png' with your arrow image */
+  background-size: 16px; /* Adjust this value based on the size of your arrow image */
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Hide the default arrow */
+.custom-selectas select::-ms-expand {
+  display: none;
+}
+.custom-selectas select::after {
+  content: "\25BC";
+  position: absolute;
+  top: 50%;
+  right: 14px; /* Adjust this value based on the width of the arrow */
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.swapas h1 {
+  padding-block: 10px;
+  border-radius: 10px;
+  font-size: 18px;
+  text-align: center;
+  cursor: pointer;
+  width: -webkit-fill-available;
+}
+.swapas .activeas {
+  background: #0b111f;
+}
+.min-aa {
+  height: 100px !important;
+}
+.asSA:disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+.css-1msa3n8 > :not(style) ~ :not(style) {
+  margin: 4px 0px 0px;
+}
+.flex-a {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.css-5d62nz {
+  margin: 0px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.66;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  color: rgb(160, 174, 192);
+}
+
+.css-1s4gov3 {
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0px;
+  border: 0px;
+  margin: 0px 0px 0px 16px;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+  appearance: none;
+  text-decoration: none;
+  text-align: center;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  overflow: visible;
+  color: rgb(108, 115, 127);
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.125rem;
+  padding: 4px;
+}
+.css-w0pj6f {
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+  inset: 0px;
+  border-radius: inherit;
+}
+.cars .border-red-500 {
+  border: 2px solid red !important;
+}
+.cars .text-red-500 {
+  color: red !important;
+}
+@media (min-width: 600px) {
+  .css-1m1aas1 {
+    -webkit-box-flex: 0;
+    flex-grow: 0;
+    flex-basis: auto;
+    width: calc(100% * 6 / var(--Grid-columns));
+  }
+}
+
+@media (min-width: 900px) {
+  .css-1m1aas1 {
+    -webkit-box-flex: 0;
+    flex-grow: 0;
+    flex-basis: auto;
+    width: calc(100% * 4 / var(--Grid-columns));
+  }
+}
+
+.flex-re {
+  display: flex;
+  width: 100%;
+}
+.uppercase {
+  text-transform: uppercase !important;
 }

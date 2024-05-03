@@ -52,8 +52,19 @@ const Exchange = () => {
                 <iframe
                   className="ifnb asmrej"
                   id="iframe-widget"
-                  src="https://changenow.io/embeds/exchange-widget/v2/widget.html?FAQ=true&amount=0.1&amountFiat=1500&backgroundColor=000000&darkMode=true&from=btc&fromFiat=eur&horizontal=false&isFiat&lang=en-US&link_id=6994be294e5ff6&locales=true&logo=false&primaryColor=8b5cf6&to=eth&toFiat=eth&toTheMoon=true"
+                  src="https://changenow.io/embeds/exchange-widget/v2/widget.html?FAQ=true&amount=0.1&amountFiat=1500&backgroundColor=000000&darkMode=true&from=btc&fromFiat=false&lang=en-US&link_id=6994be294e5ff6&locales=true&logo=false&primaryColor=8b5cf6&to=eth&toTheMoon=false"
                 ></iframe>
+                {/* <iframe
+                  id="iframe-widget"
+                  src="https://changenow.io/embeds/exchange-widget/v2/widget.html?FAQ=true&amount=0.1&amountFiat&backgroundColor=000000&darkMode=true&from=btc&horizontal=false&isFiat=false&lang=en-US&link_id=551794e22f65b4&locales=true&logo=true&primaryColor=fff&to=eth&toTheMoon=false"
+                  "
+                ></iframe> */}
+
+                <script
+                  defer
+                  type="text/javascript"
+                  src="https://changenow.io/embeds/exchange-widget/v2/stepper-connector.js"
+                ></script>
                 <script
                   defer
                   type="text/javascript"
@@ -62,7 +73,7 @@ const Exchange = () => {
                 {/* Dat */}
                 {offers && (
                   <div className="poffers">
-                    <h1>Payment offers</h1>
+                    <h1>Buy Crypto</h1>
                     <div className="flex-vts">
                       <a
                         href="https://www.moonpay.com/buy"

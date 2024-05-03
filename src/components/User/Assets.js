@@ -3,6 +3,7 @@ import SideBar from "../../layout/UserSidebar/SideBar";
 import Log from "../../assets/img/log.jpg";
 import {
   createUserTransactionApi,
+  createUserTransactionMethodApi,
   getCoinsUserApi,
   getsignUserApi,
 } from "../../Api/Service";
@@ -67,6 +68,7 @@ const Assets = () => {
         setUserData(userCoins.getCoin);
         // setUserTransactions;
         let val = response.data.bpi.USD.rate.replace(/,/g, "");
+        console.log("val: ", val);
         setliveBtc(val);
         setisLoading(false);
         // tx
@@ -151,6 +153,19 @@ const Assets = () => {
     }
   };
   //
+  const [selectedPayment, setSelectedPayment] = useState(null); // State to store the selected payment method
+
+  // Function to handle selection change in the dropdown menu
+  const handlePaymentSelection = (event) => {
+    const selectedValue = event.target.value;
+    console.log("selectedValue: ", selectedValue);
+    if (selectedValue === "Select a Payment Method") {
+      setSelectedPayment(null); // Set selected payment to null if the first option is selected
+    } else {
+      setSelectedPayment(selectedValue); // Otherwise, update the selected payment state with the value of the selected option
+    }
+  };
+
   const [copySuccess, setCopySuccess] = useState(false);
 
   const handleCopyClick = () => {
@@ -284,7 +299,9 @@ const Assets = () => {
     setModal3(false);
   };
 
-  const postUserTransaction = async () => {
+  const postUserTransaction = async (e) => {
+    console.log("Value of e:", e);
+
     try {
       let id = authUser().user._id;
       setisDisable(true);
@@ -300,21 +317,44 @@ const Assets = () => {
         );
         return;
       }
-
-      let body = {
-        trxName: depositName,
-        amount: -transactionDetail.amountMinus,
-        txId: transactionDetailId.txId,
-      };
-
-      if (!body.trxName || !body.amount || !body.txId) {
-        toast.dismiss();
-        toast.error("Fill all the required fields");
-        return;
+      let body;
+      if (e == "crypto") {
+        body = {
+          trxName: depositName,
+          amount: -transactionDetail.amountMinus,
+          txId: transactionDetailId.txId,
+          e: e,
+        };
+        if (!body.trxName || !body.amount || !body.txId) {
+          console.log("body.amount: ", body.amount);
+          console.log("body.trxName: ", body.trxName);
+          toast.dismiss();
+          toast.error("Fill all the required fields");
+          return;
+        }
+      } else if (e == "bank") {
+        body = {
+          trxName: depositName,
+          amount: -transactionDetail.amountMinus,
+          selectedPayment: selectedPayment,
+          e: e,
+        };
+        if (!body.trxName || !body.amount) {
+          toast.dismiss();
+          toast.error("Fill all the required fields");
+          return;
+        }
+        if (selectedPayment === null) {
+          toast.dismiss();
+          toast.error("Please select a Payment Method");
+          return;
+        }
       }
+
       const newTransaction = await createUserTransactionApi(id, body);
 
       if (newTransaction.success) {
+        setSelectedPayment(null);
         toast.dismiss();
         toast.success(newTransaction.msg);
 
@@ -330,6 +370,15 @@ const Assets = () => {
       setisDisable(false);
     }
   };
+
+  const [activeBank, setactiveBank] = useState(false);
+  let activeCrypto = () => {
+    setactiveBank(false);
+  };
+  let activeBankOne = () => {
+    setactiveBank(true);
+  };
+
   return (
     <div className="dark user-bg">
       <div>
@@ -875,6 +924,20 @@ const Assets = () => {
                       </svg>
                     </button>
                   </div>
+                  <div className="swapas">
+                    <h1
+                      className={activeBank ? "" : "activeas"}
+                      onClick={activeCrypto}
+                    >
+                      Crypto Withdraw
+                    </h1>
+                    <h1
+                      className={activeBank ? "activeas" : ""}
+                      onClick={activeBankOne}
+                    >
+                      Bank Withdraw
+                    </h1>
+                  </div>
                   <div className="py-2">
                     <form
                       action
@@ -1000,63 +1063,141 @@ const Assets = () => {
                         </div>
                       </div>
                       <div className="  border-t p-4 mt-2">
-                        <div className="flex items-center justify-between">
-                          <div>
-                            <h3 className="text-muted-400 font-heading text-base font-medium leading-normal leading-normal">
-                              {" "}
-                              Transaction details{" "}
-                            </h3>
-                          </div>
-                        </div>
-                        <div className="mt-5 grid grid-cols-12 gap-4">
-                          <div className="col-span-12 grid grid-cols-12">
-                            <div className="col-span-12 flex flex-col justify-center sm:col-span-3">
-                              <label className="mb-1 sm:mb-0 nui-label text-[0.825rem]">
-                                Receiving Address
-                              </label>
-                            </div>
-                            <div className="col-span-12 sm:col-span-9">
-                              <div className="relative">
-                                {/**/}
-                                <div className="group/nui-input relative">
-                                  <input
-                                    id="ninja-input-46"
-                                    type="text"
-                                    onChange={handleTransactionId}
-                                    value={transactionDetailId.txId}
-                                    name="txId"
-                                    className="nui-focus border-muted-300 text-muted-600 placeholder:text-muted-300 dark:border-muted-700 dark:bg-muted-900/75 dark:text-muted-200 dark:placeholder:text-muted-500 dark:focus:border-muted-700 peer w-full border bg-white font-sans transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-75 px-2 h-10 py-2 text-sm leading-5 pe-4 ps-9 rounded"
-                                    placeholder="Ex: 0x1234567890"
-                                  />
-                                  {/**/}
-                                  {/**/}
-                                  <div className="text-muted-400 group-focus-within/nui-input:text-primary-500 absolute start-0 top-0 flex items-center justify-center transition-colors duration-300 peer-disabled:cursor-not-allowed peer-disabled:opacity-75 h-10 w-10">
-                                    <svg
-                                      data-v-cd102a71
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      xmlnsXlink="http://www.w3.org/1999/xlink"
-                                      aria-hidden="true"
-                                      role="img"
-                                      className="icon h-[1.15rem] w-[1.15rem]"
-                                      width="1em"
-                                      height="1em"
-                                      viewBox="0 0 256 256"
-                                    >
-                                      <path
-                                        fill="currentColor"
-                                        d="M224 88h-48.6l8.47-46.57a8 8 0 0 0-15.74-2.86l-9 49.43H111.4l8.47-46.57a8 8 0 0 0-15.74-2.86L95.14 88H48a8 8 0 0 0 0 16h44.23l-8.73 48H32a8 8 0 0 0 0 16h48.6l-8.47 46.57a8 8 0 0 0 6.44 9.3A7.79 7.79 0 0 0 80 224a8 8 0 0 0 7.86-6.57l9-49.43h47.74l-8.47 46.57a8 8 0 0 0 6.44 9.3a7.79 7.79 0 0 0 1.43.13a8 8 0 0 0 7.86-6.57l9-49.43H208a8 8 0 0 0 0-16h-44.23l8.73-48H224a8 8 0 0 0 0-16m-76.5 64H99.77l8.73-48h47.73Z"
-                                      />
-                                    </svg>
-                                  </div>
-                                  {/* <span className="text-danger-600 mt-1 block font-sans text-[0.65rem] font-medium leading-none">
-                                    Address is required
-                                  </span> */}
-                                  {/**/}
-                                </div>
+                        {activeBank ? (
+                          <>
+                            <div className="flex items-center justify-between">
+                              <div>
+                                <h3 className="text-muted-400 font-heading text-base font-medium leading-normal leading-normal">
+                                  {" "}
+                                  Payment Method{" "}
+                                </h3>
                               </div>
                             </div>
-                          </div>
-                          {/**/}
+                            <div class="custom-selectas">
+                              <select
+                                id="select-options"
+                                onChange={handlePaymentSelection}
+                              >
+                                <option>Select a Payment Method</option>
+                                {isUser.payments.map((item, index) => {
+                                  return (
+                                    <option key={index}>
+                                      {item.type === "bank" ? (
+                                        item.bank.accountName
+                                      ) : (
+                                        <>
+                                          <div
+                                            style={{
+                                              textTransform: "uppercase",
+                                            }}
+                                            className="uppercase"
+                                          >
+                                            {item.card.cardCategory.toUpperCase()}
+                                          </div>{" "}
+                                          *{item.card.cardNumber.slice(-4)}
+                                        </>
+                                      )}
+                                    </option>
+                                  );
+                                })}
+                              </select>
+                            </div>
+                          </>
+                        ) : (
+                          <>
+                            <div className="flex items-center justify-between">
+                              <div>
+                                <h3 className="text-muted-400 font-heading text-base font-medium leading-normal leading-normal">
+                                  {" "}
+                                  Transaction details{" "}
+                                </h3>
+                              </div>
+                            </div>
+                            <div className="mt-5 grid grid-cols-12 gap-4">
+                              <div className="col-span-12 grid grid-cols-12">
+                                <div className="col-span-12 flex flex-col justify-center sm:col-span-3">
+                                  <label className="mb-1 sm:mb-0 nui-label text-[0.825rem]">
+                                    Receiving Address
+                                  </label>
+                                </div>
+                                <div className="col-span-12 sm:col-span-9">
+                                  <div className="relative">
+                                    {/**/}
+                                    <div className="group/nui-input relative">
+                                      <input
+                                        id="ninja-input-46"
+                                        type="text"
+                                        onChange={handleTransactionId}
+                                        value={transactionDetailId.txId}
+                                        name="txId"
+                                        className="nui-focus border-muted-300 text-muted-600 placeholder:text-muted-300 dark:border-muted-700 dark:bg-muted-900/75 dark:text-muted-200 dark:placeholder:text-muted-500 dark:focus:border-muted-700 peer w-full border bg-white font-sans transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-75 px-2 h-10 py-2 text-sm leading-5 pe-4 ps-9 rounded"
+                                        placeholder="Ex: 0x1234567890"
+                                      />
+                                      {/**/}
+                                      {/**/}
+                                      <div className="text-muted-400 group-focus-within/nui-input:text-primary-500 absolute start-0 top-0 flex items-center justify-center transition-colors duration-300 peer-disabled:cursor-not-allowed peer-disabled:opacity-75 h-10 w-10">
+                                        <svg
+                                          data-v-cd102a71
+                                          xmlns="http://www.w3.org/2000/svg"
+                                          xmlnsXlink="http://www.w3.org/1999/xlink"
+                                          aria-hidden="true"
+                                          role="img"
+                                          className="icon h-[1.15rem] w-[1.15rem]"
+                                          width="1em"
+                                          height="1em"
+                                          viewBox="0 0 256 256"
+                                        >
+                                          <path
+                                            fill="currentColor"
+                                            d="M224 88h-48.6l8.47-46.57a8 8 0 0 0-15.74-2.86l-9 49.43H111.4l8.47-46.57a8 8 0 0 0-15.74-2.86L95.14 88H48a8 8 0 0 0 0 16h44.23l-8.73 48H32a8 8 0 0 0 0 16h48.6l-8.47 46.57a8 8 0 0 0 6.44 9.3A7.79 7.79 0 0 0 80 224a8 8 0 0 0 7.86-6.57l9-49.43h47.74l-8.47 46.57a8 8 0 0 0 6.44 9.3a7.79 7.79 0 0 0 1.43.13a8 8 0 0 0 7.86-6.57l9-49.43H208a8 8 0 0 0 0-16h-44.23l8.73-48H224a8 8 0 0 0 0-16m-76.5 64H99.77l8.73-48h47.73Z"
+                                          />
+                                        </svg>
+                                      </div>
+                                      {/* <span className="text-danger-600 mt-1 block font-sans text-[0.65rem] font-medium leading-none">
+                                    Address is required
+                                  </span> */}
+                                      {/**/}
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              {/**/}
+                            </div>
+                          </>
+                        )}
+                        <div className="flex space-apas mt-5">
+                          <h1 className="text-muted-400 font-heading text-base font-medium leading-normal leading-normal">
+                            Total Amount
+                          </h1>
+                          <p className="mb-1 sm:mb-0 nui-label text-[0.825rem]">
+                            {depositName === "bitcoin" ? (
+                              <span>
+                                BTC {transactionDetail.amountMinus} ($
+                                {`${(
+                                  transactionDetail.amountMinus * liveBtc
+                                ).toFixed(2)}`}
+                                )
+                              </span>
+                            ) : depositName === "ethereum" ? (
+                              <span>
+                                ETH {transactionDetail.amountMinus} ($
+                                {`${(
+                                  transactionDetail.amountMinus * 2241.86
+                                ).toFixed(2)}`}
+                                )
+                              </span>
+                            ) : depositName === "tether" ? (
+                              <span>
+                                USDT {transactionDetail.amountMinus} ($
+                                {`${(transactionDetail.amountMinus * 1).toFixed(
+                                  2
+                                )}`}
+                                )
+                              </span>
+                            ) : (
+                              <span></span>
+                            )}
+                          </p>
                         </div>
                       </div>
                       <div>{/**/}</div>
@@ -1074,21 +1215,39 @@ const Assets = () => {
                         >
                           Cancel
                         </button>
-                        <button
-                          onClick={postUserTransaction}
-                          data-v-71bb21a6
-                          disabled={isDisable}
-                          type="button"
-                          className="is-button rounded bg-primary-500 dark:bg-primary-500 hover:enabled:bg-primary-400 dark:hover:enabled:bg-primary-400 text-white hover:enabled:shadow-lg hover:enabled:shadow-primary-500/50 dark:hover:enabled:shadow-primary-800/20 focus-visible:outline-primary-400/70 focus-within:outline-primary-400/70 focus-visible:bg-primary-500 active:enabled:bg-primary-500 dark:focus-visible:outline-primary-400 dark:focus-within:outline-primary-400 dark:focus-visible:bg-primary-500 dark:active:enabled:bg-primary-500"
-                        >
-                          {isDisable ? (
-                            <div>
-                              <div className="nui-placeload animate-nui-placeload h-4 w-8 rounded mx-auto"></div>
-                            </div>
-                          ) : (
-                            "Create"
-                          )}
-                        </button>
+                        {activeBank ? (
+                          <button
+                            onClick={() => postUserTransaction("bank")}
+                            data-v-71bb21a6
+                            disabled={isDisable}
+                            type="button"
+                            className="is-button rounded bg-primary-500 dark:bg-primary-500 hover:enabled:bg-primary-400 dark:hover:enabled:bg-primary-400 text-white hover:enabled:shadow-lg hover:enabled:shadow-primary-500/50 dark:hover:enabled:shadow-primary-800/20 focus-visible:outline-primary-400/70 focus-within:outline-primary-400/70 focus-visible:bg-primary-500 active:enabled:bg-primary-500 dark:focus-visible:outline-primary-400 dark:focus-within:outline-primary-400 dark:focus-visible:bg-primary-500 dark:active:enabled:bg-primary-500"
+                          >
+                            {isDisable ? (
+                              <div>
+                                <div className="nui-placeload animate-nui-placeload h-4 w-8 rounded mx-auto"></div>
+                              </div>
+                            ) : (
+                              "Create"
+                            )}
+                          </button>
+                        ) : (
+                          <button
+                            onClick={() => postUserTransaction("crypto")}
+                            data-v-71bb21a6
+                            disabled={isDisable}
+                            type="button"
+                            className="is-button rounded bg-primary-500 dark:bg-primary-500 hover:enabled:bg-primary-400 dark:hover:enabled:bg-primary-400 text-white hover:enabled:shadow-lg hover:enabled:shadow-primary-500/50 dark:hover:enabled:shadow-primary-800/20 focus-visible:outline-primary-400/70 focus-within:outline-primary-400/70 focus-visible:bg-primary-500 active:enabled:bg-primary-500 dark:focus-visible:outline-primary-400 dark:focus-within:outline-primary-400 dark:focus-visible:bg-primary-500 dark:active:enabled:bg-primary-500"
+                          >
+                            {isDisable ? (
+                              <div>
+                                <div className="nui-placeload animate-nui-placeload h-4 w-8 rounded mx-auto"></div>
+                              </div>
+                            ) : (
+                              "Create"
+                            )}
+                          </button>
+                        )}
                       </div>
                     </div>
                   </div>

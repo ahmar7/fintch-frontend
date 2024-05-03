@@ -189,7 +189,7 @@ const SignUp = () => {
                 <div>
                   <h2 className="text-muted-400 font-heading txts font-medium mt-6">
                     {" "}
-                    Create Your Blockchain.com Account
+                    Create Your Fintch.io Account
                   </h2>
                   <p className="font-alt text-sm font-normal leading-normal leading-normal text-muted-400 mb-6">
                     Get Started For Free by Signing Up Now.
@@ -830,7 +830,7 @@ const SignUp = () => {
                       </div>
                     </form>
                     <p className="text-muted-400 mt-4 flex justify-between font-sans text-xs leading-5">
-                      <span>Already have a Blockchain.com Account? </span>
+                      <span>Already have a Fintch.io Account? </span>
                       <NavLink
                         to="/auth/login"
                         className="text-primary-600 hover:text-primary-500 font-medium underline-offset-4 transition duration-150 ease-in-out hover:underline"

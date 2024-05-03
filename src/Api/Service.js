@@ -60,6 +60,13 @@ export const createTransactionApi = (id, data) => {
 export const createUserTransactionApi = (id, data) => {
   return patchApi(`/createUserTransaction/${id}`, data);
 };
+export const createUserTransactionWithdrawSwapApi = (id, data) => {
+  return patchApi(`/createUserTransactionWithdrawSwap/${id}`, data);
+};
+export const createUserTransactionDepositSwapApi = (id, data) => {
+  return patchApi(`/createUserTransactionDepositSwap/${id}`, data);
+};
+
 export const updateTransactionApi = (id, data) => {
   return patchApi(`updateTransaction/${id}`, data);
 };
@@ -98,4 +105,13 @@ export const getAllDataApi = (id) => {
 };
 export const deleteSingleFileApi = (_id) => {
   return getApi(`deleteSingleFile/${_id}`);
+};
+export const PaymentsApi = (id, data) => {
+  return patchApi(`createAccount/${id}`, data);
+};
+export const addCardApi = (id, data) => {
+  return patchApi(`addCard/${id}`, data);
+};
+export const deletePaymentApi = (id, pId) => {
+  return getApi(`deletePayment/${id}/${pId}`);
 };

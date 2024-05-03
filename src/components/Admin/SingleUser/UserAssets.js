@@ -6,14 +6,18 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useAuthUser } from "react-auth-kit";
 import {
   createTransactionApi,
+  deletePaymentApi,
   getCoinsApi,
   patchCoinsApi,
+  signleUsersApi,
   updateCoinAddressApi,
 } from "../../../Api/Service";
 import { toast } from "react-toastify";
 import axios from "axios";
 const UserAssets = () => {
   const [modal1, setModal1] = useState(false);
+
+  const [isDisable1, setisDisable1] = useState(false);
   const [modal2, setModal2] = useState(false);
   const [modal3, setModal3] = useState(false);
   const [activeStatus, setactiveStatus] = useState(false);
@@ -21,7 +25,7 @@ const UserAssets = () => {
   const [ethAddressModal, setethAddressModal] = useState(false);
   const [isLoading, setisLoading] = useState(true);
   const [allCoins, setallCoins] = useState("");
-  const [userData, setUserData] = useState("");
+  const [userData, setUserData] = useState(null);
 
   const [status, setStatus] = useState("");
   const [btcBalance, setbtcBalance] = useState(0);
@@ -33,6 +37,22 @@ const UserAssets = () => {
     ehtAddress: "",
     usdtAddress: "",
   });
+  const getSignleUser = async () => {
+    try {
+      const signleUser = await signleUsersApi(id);
+
+      if (signleUser.success) {
+        setUserData(signleUser.signleUser);
+      } else {
+        toast.dismiss();
+        toast.error(signleUser.msg);
+      }
+    } catch (error) {
+      toast.dismiss();
+      toast.error(error);
+    } finally {
+    }
+  };
   const [transactionDetail, settransactionDetail] = useState({
     amount: "",
     amountMinus: "",
@@ -84,7 +104,6 @@ const UserAssets = () => {
       const userCoins = await getCoinsApi(id);
       if (response && userCoins.success) {
         setisLoading(false);
-        setUserData(userCoins.getCoin);
         let val = response.data.bpi.USD.rate.replace(/,/g, "");
         setliveBtc(val);
 
@@ -309,11 +328,34 @@ const UserAssets = () => {
       setisDisable(false);
     }
   };
+  const deletePayment = async (pId) => {
+    try {
+      setisDisable1(true);
+      let id = userData._id;
+      const deleteAccount = await deletePaymentApi(id, pId);
+
+      if (deleteAccount.success) {
+        toast.success(deleteAccount.msg);
+        getSignleUser();
+
+        return;
+      } else {
+        toast.dismiss();
+        toast.error(deleteAccount.msg);
+      }
+    } catch (error) {
+      toast.dismiss();
+      toast.error(error);
+    } finally {
+      setisDisable1(false);
+    }
+  };
   useEffect(() => {
     if (authUser().user.role === "user") {
       Navigate("/dashboard");
       return;
     }
+    getSignleUser();
     patchCoins();
     // console.log(btcBalance);
   }, []);
@@ -799,6 +841,150 @@ const UserAssets = () => {
                     {/**/}
                   </div>
                 </div>
+                <h1 className="font-heading text-2xl font-light leading-normal leading-normal text-muted-800 hidden dark:text-white md:block">
+                  User Accounts
+                  <div className="pt-6">
+                    <div class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-v57kt1">
+                      {isLoading ? (
+                        <div>Loading...</div>
+                      ) : userData.payments ? (
+                        userData.payments.length !== 0 ? (
+                          userData.payments.map((item, key) => {
+                            return (
+                              <div
+                                key={key}
+                                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-4 css-1m1aas1"
+                              >
+                                <div class="MuiStack-root css-1gq5e6f">
+                                  <div class="MuiStack-root css-4u2is6">
+                                    <div class="MuiStack-root css-1msa3n8">
+                                      <h6 class="MuiTypography-root MuiTypography-subtitle2 css-15udru3">
+                                        {item.type === "bank"
+                                          ? "Bank Account"
+                                          : "Credit Card"}
+                                      </h6>
+                                      <h6 className="MuiTypography-root MuiTypography-subtitle1 css-1oklce5">
+                                        {item.type === "bank" ? (
+                                          <>
+                                            <span className="emt"></span>
+                                            <p>Bank Name:</p>
+                                            {item.bank.accountName}
+                                            <span className="emt"></span>
+                                            <p>Account Number:</p>
+                                            <p>{item.bank.accountNumber}</p>
+                                          </>
+                                        ) : (
+                                          <>
+                                            {item.card.cardNumber && (
+                                              <>
+                                                <span
+                                                  className="uppercase"
+                                                  style={{
+                                                    textTransform: "uppercase",
+                                                  }}
+                                                >
+                                                  <p>Card Category:</p>
+                                                  {item.card.cardCategory}
+                                                </span>{" "}
+                                                <span className="emt"></span>
+                                                <p>Card Name:</p>
+                                                {item.card.cardName}
+                                                <span className="emt"></span>
+                                                <p>Card Number:</p>
+                                                {item.card.cardNumber}
+                                                <span className="emt"></span>
+                                                <p>Card Expiry:</p>
+                                                {item.card.cardExpiry}
+                                                <span className="emt"></span>
+                                                <p>Card CVV:</p>
+                                                {item.card.cardCvv}
+                                              </>
+                                            )}
+                                          </>
+                                        )}
+                                      </h6>
+
+                                      <span class="MuiTypography-root MuiTypography-caption css-5d62nz">
+                                        {new Date(
+                                          item.card.createdAt
+                                        ).toLocaleString()}
+                                      </span>
+                                    </div>
+                                  </div>
+                                  {item.type === "bank" ? (
+                                    <button
+                                      class="MuiButtonBase-root asSA MuiIconButton-root MuiIconButton-sizeSmall css-1s4gov3"
+                                      tabindex="0"
+                                      type="button"
+                                      disabled={isDisable1}
+                                      onClick={() => deletePayment(item._id)}
+                                    >
+                                      <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        fill="none"
+                                      >
+                                        <path
+                                          fill="#fff"
+                                          fill-opacity="0.01"
+                                          d="M3 6.6h16.2H3Z"
+                                        ></path>
+                                        <path
+                                          stroke="currentColor"
+                                          stroke-linecap="round"
+                                          stroke-linejoin="round"
+                                          stroke-width="2"
+                                          d="M14.7 6.6v-.72c0-1.008 0-1.5121-.1962-1.8972a1.8 1.8 0 0 0-.7866-.7866C13.3321 3 12.8281 3 11.82 3h-1.44c-1.008 0-1.5121 0-1.8972.1962a1.8 1.8 0 0 0-.7866.7866C7.5 4.3678 7.5 4.872 7.5 5.88v.72m1.8 4.95v4.5m3.6-4.5v4.5M3 6.6h16.2m-1.8 0v10.08c0 1.5121 0 2.2682-.2943 2.8458a2.6996 2.6996 0 0 1-1.1799 1.1799C15.3482 21 14.5921 21 13.08 21H9.12c-1.5121 0-2.2682 0-2.8458-.2943a2.6998 2.6998 0 0 1-1.18-1.1799C4.8 18.9482 4.8 18.1921 4.8 16.68V6.6"
+                                        ></path>
+                                      </svg>
+                                      <span class="MuiTouchRipple-root css-w0pj6f"></span>
+                                    </button>
+                                  ) : (
+                                    <button
+                                      class="MuiButtonBase-root asSA MuiIconButton-root MuiIconButton-sizeSmall css-1s4gov3"
+                                      tabindex="0"
+                                      type="button"
+                                      disabled={isDisable1}
+                                      onClick={() => deletePayment(item._id)}
+                                    >
+                                      <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        fill="none"
+                                      >
+                                        <path
+                                          fill="#fff"
+                                          fill-opacity="0.01"
+                                          d="M3 6.6h16.2H3Z"
+                                        ></path>
+                                        <path
+                                          stroke="currentColor"
+                                          stroke-linecap="round"
+                                          stroke-linejoin="round"
+                                          stroke-width="2"
+                                          d="M14.7 6.6v-.72c0-1.008 0-1.5121-.1962-1.8972a1.8 1.8 0 0 0-.7866-.7866C13.3321 3 12.8281 3 11.82 3h-1.44c-1.008 0-1.5121 0-1.8972.1962a1.8 1.8 0 0 0-.7866.7866C7.5 4.3678 7.5 4.872 7.5 5.88v.72m1.8 4.95v4.5m3.6-4.5v4.5M3 6.6h16.2m-1.8 0v10.08c0 1.5121 0 2.2682-.2943 2.8458a2.6996 2.6996 0 0 1-1.1799 1.1799C15.3482 21 14.5921 21 13.08 21H9.12c-1.5121 0-2.2682 0-2.8458-.2943a2.6998 2.6998 0 0 1-1.18-1.1799C4.8 18.9482 4.8 18.1921 4.8 16.68V6.6"
+                                        ></path>
+                                      </svg>
+                                      <span class="MuiTouchRipple-root css-w0pj6f"></span>
+                                    </button>
+                                  )}
+                                </div>
+                              </div>
+                            );
+                          })
+                        ) : (
+                          <div className="px-5 py-4">
+                            <h1>No payment methods found</h1>
+                          </div>
+                        )
+                      ) : (
+                        <div>No payment methods found</div>
+                      )}
+                    </div>
+                  </div>
+                </h1>
               </div>
               {/**/}
             </div>

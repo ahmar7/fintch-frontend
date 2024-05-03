@@ -3,19 +3,22 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import { ToastContainer } from "react-toastify";
 import { Slide, Zoom, Flip, Bounce } from "react-toastify";
+import { AuthProvider } from "./store/auth";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <>
-    <App />
+    <AuthProvider>
+      <App />
 
-    <ToastContainer
-      position="bottom-center"
-      transition={Slide}
-      autoClose={2000}
-      closeButton={false}
-      pauseOnFocusLoss={false}
-      theme="colored"
-    />
+      <ToastContainer
+        position="bottom-center"
+        transition={Slide}
+        autoClose={2000}
+        closeButton={false}
+        pauseOnFocusLoss={false}
+        theme="colored"
+      />
+    </AuthProvider>
   </>
 );
 

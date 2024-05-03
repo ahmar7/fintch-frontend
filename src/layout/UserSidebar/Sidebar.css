@@ -43,7 +43,10 @@
   top: 0;
   height: auto;
 }
-
+.card-f p,
+.card-f h4 {
+  color: white;
+}
 @media (max-width: 1024px) {
   #sidebar.bgdk {
     backdrop-filter: 30px;

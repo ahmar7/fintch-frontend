@@ -13,7 +13,6 @@ import Group_18971 from "../../assets/img/Group-18971.png";
 import Group_211_1 from "../../assets/img/Group-211-1.png";
 import cryptoz_new_01 from "../../assets/img/cryptoz_new_01.png";
 import React from "react";
-import Header from "../../layout/HomeHeader/Header";
 import "./Home.css";
 import { Link } from "react-router-dom";
 const Home = () => {

@@ -1,3 +1,5 @@
+import logo_300x57 from "../../assets/img/logo-300x57-.png";
+import payment_1 from "https://fintch.io/wp-content/uploads/2021/09/payment_1.png";
 import React from "react";
 import "./Footer.css";
 import { Link } from "react-router-dom";
@@ -38,7 +40,7 @@ const Footer = () => {
                       <img
                         width={300}
                         height={57}
-                        src="https://fintch.io/wp-content/uploads/2023/11/logo-300x57-1.png"
+                        src={logo_300x57}
                         className="custom-logo"
                         alt="Fintch.io – Future DeFi"
                         decoding="async"
@@ -254,14 +256,9 @@ const Footer = () => {
                   data-element_type="widget"
                   data-widget_type="image.default"
                 >
-                  <div className="elementor-widget-container">
-                    <img
-                      src="https://fintch.io/wp-content/uploads/2021/09/payment_1.png"
-                      title
-                      alt
-                      loading="lazy"
-                    />
-                  </div>
+                  {/* <div className="elementor-widget-container">
+                    <img src={payment_1} title alt loading="lazy" />
+                  </div> */}
                 </div>
               </div>
             </div>

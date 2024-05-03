@@ -1,4 +1,4 @@
-import logo_300x57_1 from "../../assets/img/logo-300x57-1.png";
+import logo_300x57_1 from "../../assets/img/Logo.png";
 import log from "../../assets/img/log.jpg";
 import React, { useEffect, useState } from "react";
 import SideBar from "../../layout/UserSidebar/SideBar";

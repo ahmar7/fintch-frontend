@@ -36,45 +36,6 @@ const Dashboard = () => {
     setImgSrc(imageSource);
   };
 
-  const handleFetch = async () => {
-    try {
-      const uploadFiles = await getAllDataApi();
-
-      if (uploadFiles.success) {
-        setallFiles(uploadFiles.allFiles);
-      } else {
-        toast.error(uploadFiles.msg);
-      }
-    } catch (error) {
-      console.log("error: ", error);
-      toast.error(error?.data?.msg || error?.message || "Something went wrong");
-    } finally {
-      // Set loading state back to false
-    }
-  };
-
-  const handleDelete = async (_id, index) => {
-    try {
-      // Set the uploadStatus to 'preparing' for the selected card
-      setSelectedCardIndex(index);
-
-      const deletedFile = await deleteSingleFileApi(_id);
-
-      if (deletedFile.success) {
-        toast.success(deletedFile.msg);
-        handleFetch();
-      } else {
-        toast.error(deletedFile.msg);
-      }
-    } catch (error) {
-      console.log("error: ", error);
-      toast.error(error?.data?.msg || error?.message || "Something went wrong");
-    } finally {
-      // Reset the selected card index back to null
-      setSelectedCardIndex(null);
-    }
-  };
-
   const onOpenModal = () => {
     setOpen(true);
   };
@@ -196,15 +157,14 @@ const Dashboard = () => {
     try {
       const allTransactions = await getTransactionsApi();
       if (allTransactions.success) {
-        // setData(filter)
-
-        //
         let dataArray = allTransactions.Transaction;
+
         // Function to get the length of 'completed' transactions for a given object
         const getCompletedTransactionsLength = (dataObject) => {
           return dataObject.transactions
             ? dataObject.transactions.filter(
-                (transaction) => transaction.status === "completed"
+                (transaction) =>
+                  transaction.status === "completed" && !transaction.isHidden
               ).length
             : 0;
         };
@@ -220,9 +180,8 @@ const Dashboard = () => {
             (accumulator, length) => accumulator + length,
             0
           );
-        setCompleted(sumOfCompletedTransactions);
-        //
 
+        setCompleted(sumOfCompletedTransactions);
         return;
       } else {
         toast.dismiss();
@@ -232,6 +191,7 @@ const Dashboard = () => {
       toast.dismiss();
       toast.error(error);
     } finally {
+      // Any final steps if needed
     }
   };
   let format = [
@@ -261,9 +221,9 @@ const Dashboard = () => {
   ];
 
   useEffect(() => {
-    handleFetch();
     getAllUsers();
     getTransactions();
+    console.log("authUser: ", authUser().user.role);
     if (authUser().user.role === "user") {
       Navigate("/dashboard");
       return;
@@ -553,42 +513,6 @@ const Dashboard = () => {
                   />
                 </div>
               )}
-              <h1 className="font-bold font-large">
-                All files: {allFiles && allFiles.length}
-              </h1>
-              <div className="image-row-container">
-                {allFiles &&
-                  allFiles
-                    .slice()
-                    .reverse()
-                    .map((sinlgeFile, index) => (
-                      <div key={index} className="image-row">
-                        <FileCard
-                          id={index}
-                          name={sinlgeFile.name}
-                          type={sinlgeFile.type}
-                          onDelete={() => handleDelete(sinlgeFile._id, index)}
-                          info
-                          downloadUrl={sinlgeFile.url}
-                          onDownload={() => handleDownload(sinlgeFile)}
-                          darkMode
-                          imageUrl={sinlgeFile.url}
-                          onSee={
-                            sinlgeFile.type.startsWith("image")
-                              ? handleSee
-                              : undefined
-                          }
-                          size={sinlgeFile.size}
-                          // Dynamically set the uploadStatus prop for the selected card
-                          uploadStatus={
-                            selectedCardIndex === index
-                              ? "preparing"
-                              : undefined
-                          }
-                        />
-                      </div>
-                    ))}
-              </div>
             </div>
           </div>
 

@@ -1,4 +1,4 @@
-import logo_300x57_1 from "../../assets/img/logo-300x57-1.png";
+import logo_300x57_1 from "../../assets/img/Logo.png";
 import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import Log from "../../assets/img/log.jpg";
@@ -285,7 +285,7 @@ const SideBar = (props) => {
               </span>
             </NavLink>
           </li> */}
-         
+
           <li>
             <NavLink
               to="/admin/profile"

@@ -97,7 +97,11 @@ const UserDocs = () => {
       const uploadFiles = await getAllDataApi(id);
 
       if (uploadFiles.success) {
-        setallFiles(uploadFiles.allFiles.files);
+        if (uploadFiles.allFiles && uploadFiles.allFiles.files) {
+          setallFiles(uploadFiles.allFiles.files);
+        } else {
+          setallFiles(null);
+        }
       } else {
         toast.error(uploadFiles.msg);
       }
