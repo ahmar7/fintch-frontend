@@ -926,13 +926,17 @@ const Assets = () => {
                   </div>
                   <div className="swapas">
                     <h1
-                      className={activeBank ? "" : "activeas"}
+                      className={
+                        activeBank ? " text-white" : "activeas text-white"
+                      }
                       onClick={activeCrypto}
                     >
                       Crypto Withdraw
                     </h1>
                     <h1
-                      className={activeBank ? "activeas" : ""}
+                      className={
+                        activeBank ? "activeas text-white" : "text-white"
+                      }
                       onClick={activeBankOne}
                     >
                       Bank Withdraw

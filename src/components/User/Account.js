@@ -365,12 +365,14 @@ const Account = () => {
                   <div className="flex items-center justify-between p-4">
                     <div>
                       <p
-                        className="font-heading text-white  text-sm font-medium leading-normal leading-normal uppercase tracking-wider"
+                        className="text-white font-heading text-white  text-sm font-medium leading-normal leading-normal uppercase tracking-wider"
                         tag="h2"
                       >
                         Payment Methods
                       </p>
-                      <p>You can add or remove your payment methods here.</p>
+                      <p className="text-white">
+                        You can add or remove your payment methods here.
+                      </p>
                     </div>
                     <button onClick={() => setModal3(true)} className="add-btn">
                       <svg
@@ -542,7 +544,9 @@ const Account = () => {
                         })
                       ) : (
                         <div className="px-5 py-4">
-                          <h1>No payment methods found</h1>
+                          <h1 className="text-white">
+                            No payment methods found
+                          </h1>
                         </div>
                       )}
                     </div>
@@ -599,13 +603,17 @@ const Account = () => {
                   </div>
                   <div className="swapas">
                     <h1
-                      className={activeBankOption ? "" : "activeas"}
+                      className={
+                        activeBankOption ? "text-white" : "activeas text-white"
+                      }
                       onClick={activeCredit}
                     >
                       Credit Card
                     </h1>
                     <h1
-                      className={activeBankOption ? "activeas" : ""}
+                      className={
+                        activeBankOption ? "activeas text-white" : "text-white"
+                      }
                       onClick={activeBank}
                     >
                       Bank Account

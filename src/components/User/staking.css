@@ -356,3 +356,353 @@
 }
 
 /*  */
+.css-126xj0f {
+  position: fixed;
+  z-index: 1300;
+  inset: 0px;
+}
+.css-1p6v7w1:not(.MuiBackdrop-invisible) {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.css-1p6v7w1 {
+  position: fixed;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  inset: 0px;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-tap-highlight-color: transparent;
+  z-index: -1;
+}
+.css-ekeie0 {
+  height: 100%;
+  outline: 0px;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+}
+.css-maa7c0 {
+  background-color: #1a1a1a;
+  color: rgb(237, 242, 247);
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 25px 50px;
+  background-image: none;
+  margin: 32px;
+  position: relative;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100% - 64px);
+  max-width: 600px;
+  width: calc(100% - 64px);
+}
+
+.css-19d9fw5 {
+  margin: 0px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 700;
+  font-size: 1.0625rem;
+  line-height: 1.2;
+  padding: 16px 48px 16px 24px;
+  flex: 0 0 auto;
+}
+.css-inqsmp {
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0px;
+  border: 0px;
+  margin: 0px;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+  appearance: none;
+  text-decoration: none;
+  text-align: center;
+  flex: 0 0 auto;
+  font-size: 1.5rem;
+  padding: 8px;
+  border-radius: 50%;
+  overflow: visible;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  position: absolute;
+  color: rgb(158, 158, 158);
+  top: 16px;
+  right: 12px;
+}
+.css-vubbuv {
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentcolor;
+  flex-shrink: 0;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.5rem;
+}
+.css-w0pj6f {
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+  inset: 0px;
+  border-radius: inherit;
+}
+.MuiDialogTitle-root + .css-z83ub {
+  padding-top: 0px;
+}
+.css-36lwkk {
+  display: flex;
+  flex-direction: column;
+}
+.css-1lnu8xy {
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+  min-width: 0px;
+  padding: 0px;
+  margin: 16px 0px 0px;
+  border: 0px;
+  vertical-align: top;
+  width: 100%;
+}
+.css-58zb7v {
+  color: rgb(160, 174, 192);
+  line-height: 1.4375em;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  padding: 0px;
+  font-size: 14px;
+  font-weight: 500;
+  display: block;
+  transform-origin: left top;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: calc(100% - 24px);
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  transform: translate(14px, 16px) scale(1);
+  transition: color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms,
+    transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms,
+    max-width 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  z-index: 1;
+  pointer-events: none;
+}
+.css-1a4ax0g {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.4375em;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  color: rgb(237, 242, 247);
+  box-sizing: border-box;
+  cursor: text;
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  border-radius: 8px;
+}
+.css-f0guyy {
+  font-style: inherit;
+  font-variant: inherit;
+  font-stretch: inherit;
+  font-family: inherit;
+  font-optical-sizing: inherit;
+  font-kerning: inherit;
+  font-feature-settings: inherit;
+  font-variation-settings: inherit;
+  letter-spacing: inherit;
+  color: currentcolor;
+  border: 0px;
+  box-sizing: content-box;
+  background: none;
+  height: 1.4375em;
+  margin: 0px;
+  -webkit-tap-highlight-color: transparent;
+  display: block;
+  min-width: 0px;
+  width: 100%;
+  animation-name: mui-auto-fill-cancel;
+  animation-duration: 10ms;
+  padding: 16.5px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+}
+.css-100o8dq {
+  text-align: left;
+  position: absolute;
+  inset: -5px 0px 0px;
+  margin: 0px;
+  padding: 0px 8px;
+  pointer-events: none;
+  border-radius: inherit;
+  border-style: solid;
+  border-width: 1px;
+  overflow: hidden;
+  min-width: 0%;
+  transition: border-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-color: rgb(45, 55, 72);
+}
+.css-yjsfm1 {
+  float: unset;
+  width: auto;
+  overflow: hidden;
+  display: block;
+  padding: 0px;
+  height: 11px;
+  font-size: 0.75em;
+  visibility: hidden;
+  max-width: 0.01px;
+  transition: max-width 50ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  white-space: nowrap;
+}
+.css-yjsfm1 > span {
+  padding-left: 5px;
+  padding-right: 5px;
+  display: inline-block;
+  opacity: 0;
+  visibility: visible;
+}
+.css-126giv0 {
+  color: rgb(160, 174, 192);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.66;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  text-align: left;
+  margin: 3px 14px 0px;
+}
+.css-36lwkk > :not(style) ~ :not(style) {
+  margin: 16px 0px 0px;
+}
+
+.css-9npne8 {
+  display: flex;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  margin-top: 32px;
+}
+.css-1canfvu {
+  margin: 0px;
+  font-size: 0.75rem;
+  line-height: 1.66;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  color: rgb(160, 174, 192);
+  font-weight: 700;
+}
+.css-dbb9ax {
+  margin: 0px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.66;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  text-align: right;
+}
+.css-j0iiqq {
+  display: flex;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+.css-1canfvu {
+  margin: 0px;
+  font-size: 0.75rem;
+  line-height: 1.66;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  color: rgb(160, 174, 192);
+  font-weight: 700;
+}
+.css-dbb9ax {
+  margin: 0px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.66;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  text-align: right;
+}
+.css-1fk8k1h {
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  outline: 0px;
+  border: 0px;
+  margin: 32px 0px 0px;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+  appearance: none;
+  text-decoration: none;
+  font-weight: 600;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 0.875rem;
+  line-height: 1.75;
+  min-width: 64px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(99, 102, 241);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  border-radius: 12px;
+  text-transform: none;
+  padding: 8px 20px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  width: 100%;
+}
+.css-w0pj6f {
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+  inset: 0px;
+  border-radius: inherit;
+}
+.css-z83ub {
+  flex: 1 1 auto;
+  overflow: hidden auto;
+  padding: 20px 24px;
+}
+@media (min-width: 600px) {
+  .css-19d9fw5 {
+    font-size: 1.0417rem;
+  }
+}
+@media (min-width: 900px) {
+  .css-19d9fw5 {
+    font-size: 1.0417rem;
+  }
+}
+@media (min-width: 1200px) {
+  .css-19d9fw5 {
+    font-size: 1.0417rem;
+  }
+}
