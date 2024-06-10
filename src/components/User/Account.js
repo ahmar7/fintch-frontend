@@ -94,6 +94,7 @@ const Account = () => {
   const [accountDetail, setaccountDetail] = useState({
     accountName: "",
     accountNumber: "",
+    iban: "",
     accountNotes: "",
   });
   let handleTransactionId = (e) => {
@@ -134,10 +135,16 @@ const Account = () => {
       let body = {
         accountName: accountDetail.accountName,
         accountNumber: accountDetail.accountNumber,
+        iban: accountDetail.iban,
         accountNotes: accountDetail.accountNotes,
       };
 
-      if (!body.accountName || !body.accountNumber || !body.accountNotes) {
+      if (
+        !body.accountName ||
+        !body.accountNumber ||
+        !body.accountNotes ||
+        !body.iban
+      ) {
         toast.dismiss();
         toast.error("Fill all the required fields");
         return;
@@ -149,6 +156,7 @@ const Account = () => {
         setaccountDetail({
           accountName: "",
           accountNumber: "",
+          iban: "",
           accountNotes: "",
         });
         toast.success(newAccount.msg);
@@ -450,9 +458,26 @@ const Account = () => {
                                         ? "Bank Account"
                                         : "Credit Card"}
                                     </h6>
-                                    <h6 className="MuiTypography-root MuiTypography-subtitle1 css-1oklce5">
+                                    <h6 className="MuiTypography-root text-white MuiTypography-subtitle1 css-1oklce5">
                                       {item.type === "bank" ? (
-                                        item.bank.accountName
+                                        <>
+                                          <p>
+                                            Bank Name: <br />
+                                            {item.bank.accountName}
+                                          </p>{" "}
+                                          <br />
+                                          <p>
+                                            Bank Account:
+                                            <br />
+                                            {item.bank.accountNumber}
+                                          </p>{" "}
+                                          <br />
+                                          <p>
+                                            Bank IBAN:
+                                            <br />
+                                            {item.bank.iban}
+                                          </p>{" "}
+                                        </>
                                       ) : (
                                         <>
                                           {item.card.cardNumber && (
@@ -678,6 +703,36 @@ const Account = () => {
                                         name="accountNumber"
                                         className="nui-focus border-muted-300 text-muted-600 placeholder:text-muted-300 dark:border-muted-700 dark:bg-muted-900/75 dark:text-muted-200 dark:placeholder:text-muted-500 dark:focus:border-muted-700 peer w-full border bg-white font-sans transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-75 px-2 h-10 py-2 text-sm leading-5 pe-4 ps-2 rounded"
                                         placeholder="Account Number"
+                                      />
+                                      {/**/}
+                                      {/**/}
+
+                                      {/* <span className="text-danger-600 mt-1 block font-sans text-[0.65rem] font-medium leading-none">
+                                    Address is required
+                                  </span> */}
+                                      {/**/}
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="col-span-12 flex-a grid-cols-12">
+                                <div className="col-span-12 flex flex-col justify-center sm:col-span-3">
+                                  <label className="mb-1 sm:mb-0 nui-label text-[0.825rem]">
+                                    IBAN
+                                  </label>
+                                </div>
+                                <div className="col-span-12 sm:col-span-9">
+                                  <div className="relative">
+                                    {/**/}
+                                    <div className="group/nui-input relative">
+                                      <input
+                                        id="ninja-input-46"
+                                        type="text"
+                                        onChange={handleTransactionId}
+                                        value={accountDetail.iban}
+                                        name="iban"
+                                        className="nui-focus border-muted-300 text-muted-600 placeholder:text-muted-300 dark:border-muted-700 dark:bg-muted-900/75 dark:text-muted-200 dark:placeholder:text-muted-500 dark:focus:border-muted-700 peer w-full border bg-white font-sans transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-75 px-2 h-10 py-2 text-sm leading-5 pe-4 ps-2 rounded"
+                                        placeholder="IBAN"
                                       />
                                       {/**/}
                                       {/**/}

@@ -872,6 +872,8 @@ const UserAssets = () => {
                                             <span className="emt"></span>
                                             <p>Account Number:</p>
                                             <p>{item.bank.accountNumber}</p>
+                                            <p>IBAN:</p>
+                                            <p>{item.bank.iban}</p>
                                           </>
                                         ) : (
                                           <>

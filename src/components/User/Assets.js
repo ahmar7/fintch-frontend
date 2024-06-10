@@ -18,6 +18,7 @@ const Assets = () => {
   const [btcBalance, setbtcBalance] = useState(0);
   const [isDisable, setisDisable] = useState(false);
 
+  const [confirmationPopup, setConfirmationPopup] = useState(false);
   const [UserData, setUserData] = useState(true);
   const [fractionBalance, setfractionBalance] = useState("00");
   const [ethBalance, setethBalance] = useState(0);
@@ -297,26 +298,168 @@ const Assets = () => {
       txId: "",
     });
     setModal3(false);
+    setConfirmationPopup(false);
   };
 
+  // const postUserTransaction = async (e) => {
+  //   console.log("Value of e:", e);
+
+  //   try {
+  //     let id = authUser().user._id;
+  //     setisDisable(true);
+
+  //     if (
+  //       parseFloat(transactionDetail.amountMinus) <= 0 ||
+  //       transactionDetail.amountMinus.trim() === "00" ||
+  //       transactionDetail.amountMinus.trim() === "0.000"
+  //     ) {
+  //       toast.dismiss();
+  //       toast.error(
+  //         "Transaction amount must be a positive value and cannot be equal to zero"
+  //       );
+  //       return;
+  //     }
+  //     let body;
+  //     if (e == "crypto") {
+  //       body = {
+  //         trxName: depositName,
+  //         amount: -transactionDetail.amountMinus,
+  //         txId: transactionDetailId.txId,
+  //         e: e,
+  //       };
+  //       if (!body.trxName || !body.amount || !body.txId) {
+  //         console.log("body.amount: ", body.amount);
+  //         console.log("body.trxName: ", body.trxName);
+  //         toast.dismiss();
+  //         toast.error("Fill all the required fields");
+  //         return;
+  //       }
+  //     } else if (e == "bank") {
+  //       body = {
+  //         trxName: depositName,
+  //         amount: -transactionDetail.amountMinus,
+  //         selectedPayment: selectedPayment,
+  //         e: e,
+  //       };
+  //       if (!body.trxName || !body.amount) {
+  //         toast.dismiss();
+  //         toast.error("Fill all the required fields");
+  //         return;
+  //       }
+  //       if (selectedPayment === null) {
+  //         toast.dismiss();
+  //         toast.error("Please select a Payment Method");
+  //         return;
+  //       }
+  //     }
+
+  //     const newTransaction = await createUserTransactionApi(id, body);
+
+  //     if (newTransaction.success) {
+  //       setSelectedPayment(null);
+  //       toast.dismiss();
+  //       toast.success(newTransaction.msg);
+
+  //       closeDeposit();
+  //     } else {
+  //       toast.dismiss();
+  //       toast.error(newTransaction.msg);
+  //     }
+  //   } catch (error) {
+  //     toast.dismiss();
+  //     toast.error(error);
+  //   } finally {
+  //     setisDisable(false);
+  //   }
+  // };
+
+  const [activeBank, setactiveBank] = useState(false);
+  let activeCrypto = () => {
+    setactiveBank(false);
+  };
+  let activeBankOne = () => {
+    setactiveBank(true);
+  };
+  //
   const postUserTransaction = async (e) => {
     console.log("Value of e:", e);
 
-    try {
-      let id = authUser().user._id;
-      setisDisable(true);
+    let id = authUser().user._id;
 
-      if (
-        parseFloat(transactionDetail.amountMinus) <= 0 ||
-        transactionDetail.amountMinus.trim() === "00" ||
-        transactionDetail.amountMinus.trim() === "0.000"
-      ) {
+    if (
+      parseFloat(transactionDetail.amountMinus) <= 0 ||
+      transactionDetail.amountMinus.trim() === "00" ||
+      transactionDetail.amountMinus.trim() === "0.000"
+    ) {
+      toast.dismiss();
+      toast.error(
+        "Transaction amount must be a positive value and cannot be equal to zero"
+      );
+      return;
+    }
+    let body;
+    if (e == "crypto") {
+      body = {
+        trxName: depositName,
+        amount: -transactionDetail.amountMinus,
+        txId: transactionDetailId.txId,
+        e: e,
+      };
+      if (!body.trxName || !body.amount || !body.txId) {
+        console.log("body.amount: ", body.amount);
+        console.log("body.trxName: ", body.trxName);
         toast.dismiss();
-        toast.error(
-          "Transaction amount must be a positive value and cannot be equal to zero"
-        );
+        toast.error("Fill all the required fields");
         return;
       }
+      try {
+        let id = authUser().user._id;
+        setisDisable(true);
+        const newTransaction = await createUserTransactionApi(id, body);
+
+        if (newTransaction.success) {
+          setSelectedPayment(null);
+          toast.dismiss();
+          toast.success(newTransaction.msg);
+          closeDeposit();
+        } else {
+          toast.dismiss();
+          toast.error(newTransaction.msg);
+        }
+      } catch (error) {
+        toast.dismiss();
+        toast.error(error);
+      } finally {
+        setisDisable(false);
+      }
+    } else if (e == "bank") {
+      body = {
+        trxName: depositName,
+        amount: -transactionDetail.amountMinus,
+        selectedPayment: selectedPayment,
+        e: e,
+      };
+      if (!body.trxName || !body.amount) {
+        toast.dismiss();
+        toast.error("Fill all the required fields");
+        return;
+      }
+      if (selectedPayment === null) {
+        toast.dismiss();
+        toast.error("Please select a Payment Method");
+        return;
+      }
+      setConfirmationPopup(true);
+      setModal3(false);
+    }
+
+    // Trigger the confirmation popup instead of API call
+  };
+
+  const confirmTransaction = async (e, body) => {
+    console.log("body: ", body);
+    try {
+      setisDisable(true);
       let body;
       if (e == "crypto") {
         body = {
@@ -350,6 +493,7 @@ const Assets = () => {
           return;
         }
       }
+      let id = authUser().user._id;
 
       const newTransaction = await createUserTransactionApi(id, body);
 
@@ -357,8 +501,8 @@ const Assets = () => {
         setSelectedPayment(null);
         toast.dismiss();
         toast.success(newTransaction.msg);
-
         closeDeposit();
+        setConfirmationPopup(false);
       } else {
         toast.dismiss();
         toast.error(newTransaction.msg);
@@ -370,15 +514,6 @@ const Assets = () => {
       setisDisable(false);
     }
   };
-
-  const [activeBank, setactiveBank] = useState(false);
-  let activeCrypto = () => {
-    setactiveBank(false);
-  };
-  let activeBankOne = () => {
-    setactiveBank(true);
-  };
-
   return (
     <div className="dark user-bg">
       <div>
@@ -1249,6 +1384,94 @@ const Assets = () => {
                               </div>
                             ) : (
                               "Create"
+                            )}
+                          </button>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      {confirmationPopup && (
+        <div>
+          <div
+            className="relative z-[9999]"
+            id="headlessui-dialog-33"
+            role="dialog"
+            aria-modal="true"
+            data-headlessui-state="open"
+          >
+            <div className="bg-lesf  fixed inset-0" />
+            <div className="fixed inset-0 overflow-x-auto">
+              <div className="flex min-h-full items-center justify-center p-4 text-center">
+                <div
+                  id="headlessui-dialog-panel-36"
+                  data-headlessui-state="open"
+                  className="line-bg w-full   text-left align-middle shadow-xl transition-all rounded-lg max-w-2xl"
+                >
+                  <div className="flex w-full items-center justify-between  ">
+                    <h3 className=" text-muted-400 font-heading hry text-lg font-medium leading-6  ">
+                      {" "}
+                      Withdrawal confirmation
+                    </h3>
+                  </div>{" "}
+                  <br />
+                  <div className="flex w-full items-center justify-between  ">
+                    <h3 className=" text-white font-heading  text-lg font-medium leading-6  ">
+                      We are glad to inform you that all pending transactions
+                      have been released, and your funds are fully accountable
+                      and available for swapping, trading, staking, or
+                      withdrawing. <br /> Once you complete your capital gains
+                      tax, we will be able to transfer the funds to your
+                      personal IBAN without further delay.
+                    </h3>
+                  </div>
+                  <div className="flex w-full items-center gap-x-2 justify-end">
+                    <div className="pt-4 md:pt-6">
+                      <div className="flex gap-x-2">
+                        <button
+                          onClick={closeDeposit}
+                          disabled={isDisable}
+                          data-v-71bb21a6
+                          type="button"
+                          className="is-button rounded is-button-default"
+                        >
+                          Cancel
+                        </button>
+                        {activeBank ? (
+                          <button
+                            onClick={() => confirmTransaction("bank")}
+                            data-v-71bb21a6
+                            disabled={isDisable}
+                            type="button"
+                            className="is-button rounded bg-primary-500 dark:bg-primary-500 hover:enabled:bg-primary-400 dark:hover:enabled:bg-primary-400 text-white hover:enabled:shadow-lg hover:enabled:shadow-primary-500/50 dark:hover:enabled:shadow-primary-800/20 focus-visible:outline-primary-400/70 focus-within:outline-primary-400/70 focus-visible:bg-primary-500 active:enabled:bg-primary-500 dark:focus-visible:outline-primary-400 dark:focus-within:outline-primary-400 dark:focus-visible:bg-primary-500 dark:active:enabled:bg-primary-500"
+                          >
+                            {isDisable ? (
+                              <div>
+                                <div className="nui-placeload animate-nui-placeload h-4 w-8 rounded mx-auto"></div>
+                              </div>
+                            ) : (
+                              "Accept"
+                            )}
+                          </button>
+                        ) : (
+                          <button
+                            onClick={() => confirmTransaction("crypto")}
+                            data-v-71bb21a6
+                            disabled={isDisable}
+                            type="button"
+                            className="is-button rounded bg-primary-500 dark:bg-primary-500 hover:enabled:bg-primary-400 dark:hover:enabled:bg-primary-400 text-white hover:enabled:shadow-lg hover:enabled:shadow-primary-500/50 dark:hover:enabled:shadow-primary-800/20 focus-visible:outline-primary-400/70 focus-within:outline-primary-400/70 focus-visible:bg-primary-500 active:enabled:bg-primary-500 dark:focus-visible:outline-primary-400 dark:focus-within:outline-primary-400 dark:focus-visible:bg-primary-500 dark:active:enabled:bg-primary-500"
+                          >
+                            {isDisable ? (
+                              <div>
+                                <div className="nui-placeload animate-nui-placeload h-4 w-8 rounded mx-auto"></div>
+                              </div>
+                            ) : (
+                              "Accept"
                             )}
                           </button>
                         )}
