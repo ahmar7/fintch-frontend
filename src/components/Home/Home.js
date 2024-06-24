@@ -1653,29 +1653,6 @@ const Home = () => {
                   >
                     <div className="elementor-widget-wrap"> </div>
                   </div>
-                  <div
-                    className="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-c7f3548"
-                    data-id="c7f3548"
-                    data-element_type="column"
-                  >
-                    <div className="elementor-widget-wrap elementor-element-populated">
-                      <div
-                        className="elementor-element elementor-element-9f2d42b elementor-widget elementor-widget-image"
-                        data-id="9f2d42b"
-                        data-element_type="widget"
-                        data-widget_type="image.default"
-                      >
-                        <div className="elementor-widget-container">
-                          <img
-                            src="https://fintch.io/wp-content/uploads/2021/09/payment_1.png"
-                            title
-                            alt
-                            loading="lazy"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </section>
               <section
