@@ -69,7 +69,7 @@ const Assets = () => {
         setUserData(userCoins.getCoin);
         // setUserTransactions;
         let val = response.data.bpi.USD.rate.replace(/,/g, "");
-        console.log("val: ", val);
+
         setliveBtc(val);
         setisLoading(false);
         // tx
