@@ -243,40 +243,93 @@ const Staking = () => {
     // Check if the value is a valid number
   };
   const [amount, setAmount] = useState("");
+  const [parseAmountBtc, setparseAmountBtc] = useState(0);
+  const [parsrIntBtc, setparsrIntBtc] = useState(0);
   const [estInterest, setEstInterest] = useState(0);
   useEffect(() => {
     calculateEstInterest();
   }, [amount, activeDurationBtc]);
 
   const calculateEstInterest = () => {
-    const rate = activeDurationBtc;
-    const interest = (amount * rate) / 100;
-    const total = amount + interest;
-    setEstInterest(parseFloat(total));
+    let rate;
+    switch (activeDurationBtc) {
+      case 30:
+        rate = 11;
+        break;
+      case 60:
+        rate = 45;
+        break;
+      case 90:
+        rate = 123;
+        break;
+      default:
+        rate = 0;
+    }
+    const validAmount = parseFloat(amount) || 0;
+    const interest = (validAmount * rate) / 100;
+    const total = validAmount + interest;
+    setEstInterest(interest);
+    setparseAmountBtc(parseFloat(validAmount));
+    setparsrIntBtc(parseFloat(interest));
   };
+  const [parseAmountEth, setparseAmountEth] = useState(0);
+  const [parsrIntEth, setparsrIntEth] = useState(0);
   const [estInterestEth, setEstInterestEth] = useState(0);
   useEffect(() => {
     calculateEstInterestEth();
-  }, [amount, activeDurationBtc]);
+  }, [amount, activeDurationEth]);
 
   const calculateEstInterestEth = () => {
-    const rate = activeDurationBtc;
-    const interest = (amount * rate) / 100;
-    const total = amount + interest;
-    setEstInterestEth(parseFloat(total));
+    let rate;
+    switch (activeDurationEth) {
+      case 30:
+        rate = 11;
+        break;
+      case 60:
+        rate = 45;
+        break;
+      case 90:
+        rate = 123;
+        break;
+      default:
+        rate = 0;
+    }
+    const validAmount = parseFloat(amount) || 0;
+    const interest = (validAmount * rate) / 100;
+    const total = validAmount + interest;
+    setEstInterestEth(interest);
+    setparseAmountEth(parseFloat(validAmount));
+    setparsrIntEth(parseFloat(interest));
   };
+  const [parseAmountUsdt, setparseAmountUsdt] = useState(0);
+  const [parsrIntUsdt, setparsrIntUsdt] = useState(0);
   const [estInterestUsdt, setEstInterestUsdt] = useState(0);
   useEffect(() => {
     calculateEstInterestUsdt();
-  }, [amount, activeDurationBtc]);
+  }, [amount, activeDurationUsdt]);
 
   const calculateEstInterestUsdt = () => {
-    const rate = activeDurationBtc;
-    const interest = (amount * rate) / 100;
-    const total = amount + interest;
-    setEstInterestUsdt(parseFloat(total));
+    let rate;
+    switch (activeDurationUsdt) {
+      case 30:
+        rate = 11;
+        break;
+      case 60:
+        rate = 45;
+        break;
+      case 90:
+        rate = 123;
+        break;
+      default:
+        rate = 0;
+    }
+    const validAmount = parseFloat(amount) || 0;
+    const interest = (validAmount * rate) / 100;
+    const total = validAmount + interest;
+    setEstInterestUsdt(interest);
+    setparseAmountUsdt(parseFloat(validAmount));
+    setparsrIntUsdt(parseFloat(interest));
   };
-
   const confirmTransaction = async (depositName) => {
     let e = "crypto";
     if (amount.trim() === "") {
@@ -795,6 +848,14 @@ const Staking = () => {
                           {estInterest.toFixed(8)} BTC
                         </span>
                       </div>
+                      <div className="MuiStack-root css-j0iiqq">
+                        <span className="MuiTypography-root MuiTypography-caption css-1canfvu">
+                          Total Amount
+                        </span>
+                        <span className="MuiTypography-root MuiTypography-caption css-dbb9ax">
+                          {(parseAmountBtc + parsrIntBtc).toFixed(8)} BTC
+                        </span>
+                      </div>
                       <button
                         className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1j9kn1e"
                         tabIndex={0}
@@ -890,6 +951,14 @@ const Staking = () => {
                         </span>
                         <span className="MuiTypography-root MuiTypography-caption css-dbb9ax">
                           {estInterestEth.toFixed(8)} ETH
+                        </span>
+                      </div>
+                      <div className="MuiStack-root css-j0iiqq">
+                        <span className="MuiTypography-root MuiTypography-caption css-1canfvu">
+                          Total Amount
+                        </span>
+                        <span className="MuiTypography-root MuiTypography-caption css-dbb9ax">
+                          {(parseAmountEth + parsrIntEth).toFixed(8)} ETH
                         </span>
                       </div>
                       <button
@@ -988,6 +1057,14 @@ const Staking = () => {
                         </span>
                         <span className="MuiTypography-root MuiTypography-caption css-dbb9ax">
                           {estInterestUsdt.toFixed(2)} USDT
+                        </span>
+                      </div>
+                      <div className="MuiStack-root css-j0iiqq">
+                        <span className="MuiTypography-root MuiTypography-caption css-1canfvu">
+                          Total Amount
+                        </span>
+                        <span className="MuiTypography-root MuiTypography-caption css-dbb9ax">
+                          {(parseAmountUsdt + parsrIntUsdt).toFixed(8)} USDT
                         </span>
                       </div>
                       <button
