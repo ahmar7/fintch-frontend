@@ -106,6 +106,9 @@ const AddUser = () => {
       return;
     } else if (authUser().user.role === "admin") {
       return;
+    } else if (authUser().user.role === "subadmin") {
+      Navigate("/admin/dashboard");
+      return;
     }
   }, []);
 

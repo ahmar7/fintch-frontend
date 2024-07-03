@@ -78,7 +78,10 @@ const Login = () => {
           window.location.href = "/dashboard";
 
           return;
-        } else if (updateHeader.user.role === "admin") {
+        } else if (
+          updateHeader.user.role === "admin" ||
+          updateHeader.user.role === "subadmin"
+        ) {
           window.location.href = "/admin/dashboard";
         }
       } else {
@@ -99,7 +102,10 @@ const Login = () => {
       navigate("/dashboard");
 
       return;
-    } else if (isAuthenticated() && authUser().user.role === "admin") {
+    }
+    if (isAuthenticated() && authUser().user.role === "admin") {
+      navigate("/admin/dashboard");
+    } else if (isAuthenticated() && authUser().user.role === "subadmin") {
       navigate("/admin/dashboard");
     }
   }, []);

@@ -136,11 +136,18 @@ const Dashboard = () => {
   const getAllUsers = async () => {
     try {
       const allUsers = await allUsersApi();
-
       if (allUsers.success) {
-        const filtered = allUsers.allUsers.filter((user) =>
-          user.role.includes("user")
-        );
+        let filtered;
+        if (authUser().user.role === "admin") {
+          filtered = allUsers.allUsers.filter((user) =>
+            user.role.includes("user")
+          );
+        }
+        if (authUser().user.role === "subadmin") {
+          filtered = allUsers.allUsers.filter(
+            (user) => user.role.includes("user") && user.isShared === true
+          );
+        }
         setUsers(filtered);
       } else {
         toast.dismiss();
@@ -227,7 +234,10 @@ const Dashboard = () => {
     if (authUser().user.role === "user") {
       Navigate("/dashboard");
       return;
-    } else if (authUser().user.role === "admin") {
+    } else if (
+      authUser().user.role === "admin" ||
+      authUser().user.role === "subadmin"
+    ) {
       getHtmlData();
       setIsUser(authUser.user);
       return;

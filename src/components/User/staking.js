@@ -503,10 +503,7 @@ const Staking = () => {
                             </div>
                             <div className="MuiStack-root css-9npne8">
                               <span className="MuiTypography-root MuiTypography-caption css-1canfvu">
-                                Rate
-                              </span>
-                              <span className="MuiTypography-root MuiTypography-caption css-dbb9ax">
-                                2.70%
+                                Tap Stake to see your reward
                               </span>
                             </div>
                             <div className="MuiStack-root css-j0iiqq">
@@ -593,10 +590,7 @@ const Staking = () => {
                             </div>
                             <div className="MuiStack-root css-9npne8">
                               <span className="MuiTypography-root MuiTypography-caption css-1canfvu">
-                                Rate
-                              </span>
-                              <span className="MuiTypography-root MuiTypography-caption css-dbb9ax">
-                                2.70%
+                                Tap Stake to see your reward
                               </span>
                             </div>
                             <div className="MuiStack-root css-j0iiqq">
@@ -682,11 +676,8 @@ const Staking = () => {
                               </div>
                             </div>
                             <div className="MuiStack-root css-9npne8">
-                              <span className="MuiTypography-root MuiTypography-caption css-1canfvu">
-                                Rate
-                              </span>
-                              <span className="MuiTypography-root MuiTypography-caption css-dbb9ax">
-                                2.70%
+                              <span className="MuiTypography-root text-center MuiTypography-caption css-1canfvu">
+                                Tap Stake to see your reward
                               </span>
                             </div>
                             <div className="MuiStack-root css-j0iiqq">

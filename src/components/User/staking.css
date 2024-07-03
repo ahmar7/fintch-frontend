@@ -386,6 +386,9 @@
   -webkit-box-align: center;
   align-items: center;
 }
+.text-center {
+  text-align: center;
+}
 .css-maa7c0 {
   background-color: #1a1a1a;
   color: rgb(237, 242, 247);

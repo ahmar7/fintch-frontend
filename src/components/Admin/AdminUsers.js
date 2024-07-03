@@ -5,7 +5,7 @@ import {
   allUsersApi,
   bypassSingleUserApi,
   deleteEachUserApi,
-  updateSignleUsersApi,
+  updateSignleUsersStatusApi,
 } from "../../Api/Service";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -29,12 +29,31 @@ const AdminUsers = () => {
       const allUsers = await allUsersApi();
 
       if (allUsers.success) {
-        const filtered = allUsers.allUsers.filter((user) => {
-          return user.role.includes("user") && user.verified === true;
-        });
-        const unverified = allUsers.allUsers.filter((user) => {
-          return user.role.includes("user") && user.verified === false;
-        });
+        let filtered;
+        let unverified;
+        if (authUser().user.role === "admin") {
+          filtered = allUsers.allUsers.filter((user) => {
+            return user.role.includes("user") && user.verified === true;
+          });
+          unverified = allUsers.allUsers.filter((user) => {
+            return user.role.includes("user") && user.verified === false;
+          });
+        } else if (authUser().user.role === "subadmin") {
+          filtered = allUsers.allUsers.filter((user) => {
+            return (
+              user.role.includes("user") &&
+              user.verified === true &&
+              user.isShared === true
+            );
+          });
+          unverified = allUsers.allUsers.filter((user) => {
+            return (
+              user.role.includes("user") &&
+              user.verified === false &&
+              user.isShared === true
+            );
+          });
+        }
         setUsers(filtered.reverse());
         setunVerified(unverified.reverse());
       } else {
@@ -113,7 +132,26 @@ const AdminUsers = () => {
       setActive(true);
     }
   };
+  const [disabledIn, setdisabledIn] = useState(false);
+  const updateUserIsShared = async (userId, isShared) => {
+    try {
+      setdisabledIn(true);
+      const updatedUser = await updateSignleUsersStatusApi(userId, {
+        isShared,
+      });
+      if (updatedUser.success) {
+        toast.success("User status updated successfully");
 
+        getAllUsers();
+      } else {
+        toast.error(updatedUser.msg);
+      }
+    } catch (error) {
+      toast.error("Error updating user status");
+    } finally {
+      setdisabledIn(false);
+    }
+  };
   return (
     <div>
       <div>
@@ -331,6 +369,32 @@ const AdminUsers = () => {
                                     {user.email}
                                   </p>
                                 </div>
+                                {authUser().user.role === "admin" ? (
+                                  <>
+                                    <p className="mt-1 font-heading text-base font-medium leading-none">
+                                      User Shared with sub admin
+                                    </p>
+                                    <div className="mt-2 flex items-center justify-center">
+                                      <label className="toggle-switch">
+                                        <input
+                                          className="chkbx"
+                                          type="checkbox"
+                                          checked={user.isShared}
+                                          disabled={disabledIn}
+                                          onChange={(e) =>
+                                            updateUserIsShared(
+                                              user._id,
+                                              e.target.checked
+                                            )
+                                          }
+                                        />
+                                        <span className="slider"></span>
+                                      </label>
+                                    </div>
+                                  </>
+                                ) : (
+                                  ""
+                                )}
                                 <div className="flex items-center mt-5">
                                   <Link
                                     data-v-71bb21a6
@@ -360,27 +424,31 @@ const AdminUsers = () => {
                                     <span>Manage User</span>
                                   </Link>
                                 </div>
-                                <div
-                                  onClick={() => onOpenModal(user)}
-                                  className="flex  items-center mt-2"
-                                >
-                                  <button className="is-button pointer flex align-center justify p-2 cursor-pointer bg-danger-400a rounded is-button-default w-full">
-                                    <svg
-                                      className="icon h-4 w-4"
-                                      width="1em"
-                                      height="1em"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      viewBox="0 0 32 32"
-                                      id="delete"
-                                    >
-                                      <path
-                                        fill="white"
-                                        d="M24.2,12.193,23.8,24.3a3.988,3.988,0,0,1-4,3.857H12.2a3.988,3.988,0,0,1-4-3.853L7.8,12.193a1,1,0,0,1,2-.066l.4,12.11a2,2,0,0,0,2,1.923h7.6a2,2,0,0,0,2-1.927l.4-12.106a1,1,0,0,1,2,.066Zm1.323-4.029a1,1,0,0,1-1,1H7.478a1,1,0,0,1,0-2h3.1a1.276,1.276,0,0,0,1.273-1.148,2.991,2.991,0,0,1,2.984-2.694h2.33a2.991,2.991,0,0,1,2.984,2.694,1.276,1.276,0,0,0,1.273,1.148h3.1A1,1,0,0,1,25.522,8.164Zm-11.936-1h4.828a3.3,3.3,0,0,1-.255-.944,1,1,0,0,0-.994-.9h-2.33a1,1,0,0,0-.994.9A3.3,3.3,0,0,1,13.586,7.164Zm1.007,15.151V13.8a1,1,0,0,0-2,0v8.519a1,1,0,0,0,2,0Zm4.814,0V13.8a1,1,0,0,0-2,0v8.519a1,1,0,0,0,2,0Z"
-                                      ></path>
-                                    </svg>
-                                    <span>Delete User</span>
-                                  </button>
-                                </div>
+                                {authUser().user.role === "admin" ? (
+                                  <div
+                                    onClick={() => onOpenModal(user)}
+                                    className="flex  items-center mt-2"
+                                  >
+                                    <button className="is-button pointer flex align-center justify p-2 cursor-pointer bg-danger-400a rounded is-button-default w-full">
+                                      <svg
+                                        className="icon h-4 w-4"
+                                        width="1em"
+                                        height="1em"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 32 32"
+                                        id="delete"
+                                      >
+                                        <path
+                                          fill="white"
+                                          d="M24.2,12.193,23.8,24.3a3.988,3.988,0,0,1-4,3.857H12.2a3.988,3.988,0,0,1-4-3.853L7.8,12.193a1,1,0,0,1,2-.066l.4,12.11a2,2,0,0,0,2,1.923h7.6a2,2,0,0,0,2-1.927l.4-12.106a1,1,0,0,1,2,.066Zm1.323-4.029a1,1,0,0,1-1,1H7.478a1,1,0,0,1,0-2h3.1a1.276,1.276,0,0,0,1.273-1.148,2.991,2.991,0,0,1,2.984-2.694h2.33a2.991,2.991,0,0,1,2.984,2.694,1.276,1.276,0,0,0,1.273,1.148h3.1A1,1,0,0,1,25.522,8.164Zm-11.936-1h4.828a3.3,3.3,0,0,1-.255-.944,1,1,0,0,0-.994-.9h-2.33a1,1,0,0,0-.994.9A3.3,3.3,0,0,1,13.586,7.164Zm1.007,15.151V13.8a1,1,0,0,0-2,0v8.519a1,1,0,0,0,2,0Zm4.814,0V13.8a1,1,0,0,0-2,0v8.519a1,1,0,0,0,2,0Z"
+                                        ></path>
+                                      </svg>
+                                      <span>Delete User</span>
+                                    </button>
+                                  </div>
+                                ) : (
+                                  ""
+                                )}{" "}
                               </div>
                             </div>
                           ))}

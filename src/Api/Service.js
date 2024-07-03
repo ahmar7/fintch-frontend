@@ -38,6 +38,9 @@ export const setHtmlDataApi = (data) => {
 export const updateSignleUsersApi = (id, data) => {
   return postApi(`updateSingleUser/${id}`, data);
 };
+export const updateSignleUsersStatusApi = (id, data) => {
+  return postApi(`updateSingleUserStatus/${id}`, data);
+};
 export const sendEmailCodeApi = (data) => {
   return postApi(`sendEmail`, data);
 };
